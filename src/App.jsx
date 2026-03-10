@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Page from './Feed'
+import Feed from './Feed'
 
 function App() {
   

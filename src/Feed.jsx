@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
 
-const C = {
-  bg: "#0D1117", bgCard: "#161B22", bgCard2: "#1C2333",
-  cyan: "#00D9FF", purple: "#7C3AED", green: "#10B981",
-  orange: "#F59E0B", red: "#EF4444", white: "#E6EDF3", gray: "#8B949E",
-  dark: "#30363D",
-};
+
 useEffect(() => {
 const styleEl = document.createElement("style");
 styleEl.textContent = `
@@ -33,6 +28,13 @@ styleEl.textContent = `
 `;
 document.head.appendChild(styleEl);
 }, []);
+
+const C = {
+  bg: "#0D1117", bgCard: "#161B22", bgCard2: "#1C2333",
+  cyan: "#00D9FF", purple: "#7C3AED", green: "#10B981",
+  orange: "#F59E0B", red: "#EF4444", white: "#E6EDF3", gray: "#8B949E",
+  dark: "#30363D",alpha: (c, o) => c + Math.floor(o * 255).toString(16).padStart(2, "0"),
+};
 
 function GlowOrb({ x, y, color, size = 340, opacity = 0.12 }) {
   return (

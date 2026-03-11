@@ -1,39 +1,11 @@
-import { useState, useEffect } from "react";
-
-
-useEffect(() => {
-const styleEl = document.createElement("style");
-styleEl.textContent = `
-  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0D1117; }
-
-  @keyframes fadeUp   { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
-  @keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
-  @keyframes blink    { 0%,100%{opacity:1;} 50%{opacity:0;} }
-  @keyframes float    { 0%,100%{transform:translateY(0px);} 50%{transform:translateY(-10px);} }
-  @keyframes pulse    { 0%,100%{opacity:1;} 50%{opacity:.4;} }
-  @keyframes matrixFall { 0%{opacity:1;transform:translateY(-10px);} 100%{opacity:0;transform:translateY(130px);} }
-
-  .slide-enter { animation: fadeIn .45s ease both; }
-  .card-hover  { transition: transform .2s ease, box-shadow .2s ease; }
-  .card-hover:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(0,0,0,.55); }
-  .syne { font-family:'Syne',sans-serif; }
-  .dm   { font-family:'DM Sans',sans-serif; }
-  .mono { font-family:'JetBrains Mono',monospace; }
-
-  ::-webkit-scrollbar { width:5px; }
-  ::-webkit-scrollbar-track { background:#0D1117; }
-  ::-webkit-scrollbar-thumb { background:#30363D; border-radius:3px; }
-`;
-document.head.appendChild(styleEl);
-}, []);
+import { useState, useEffect, Fragment } from "react";
 
 const C = {
   bg: "#0D1117", bgCard: "#161B22", bgCard2: "#1C2333",
   cyan: "#00D9FF", purple: "#7C3AED", green: "#10B981",
   orange: "#F59E0B", red: "#EF4444", white: "#E6EDF3", gray: "#8B949E",
-  dark: "#30363D",alpha: (c, o) => c + Math.floor(o * 255).toString(16).padStart(2, "0"),
+  dark: "#30363D",
+  alpha: (c, o) => c + Math.floor(o * 255).toString(16).padStart(2, "0"),
 };
 
 function GlowOrb({ x, y, color, size = 340, opacity = 0.12 }) {
@@ -54,9 +26,9 @@ function MatrixRain() {
         <div key={i} style={{
           position:"absolute", top:0, left:`${i * 6.5}%`,
           fontFamily:"'JetBrains Mono',monospace", fontSize:13, color:C.cyan,
-          animation:`matrixFall ${1.8 + Math.random() * 2.5}s linear ${Math.random() * 2}s infinite`,
+          animation:`matrixFall ${1.8 + (i * 0.17) % 2.5}s linear ${(i * 0.13) % 2}s infinite`,
         }}>
-          {chars[Math.floor(Math.random() * chars.length)]}
+          {chars[(i * 3) % chars.length]}
         </div>
       ))}
     </div>
@@ -101,7 +73,6 @@ function InfoCard({ icon, title, body, color = C.cyan, delay = 0 }) {
   return (
     <div className="card-hover" style={{
       background:C.bgCard, borderRadius:10,
-      borderLeft:`3px solid ${color}`,
       border:`1px solid ${color}33`, borderLeft:`3px solid ${color}`,
       padding:"16px 18px",
       animation:`fadeUp .5s ease ${delay}s both`,
@@ -209,7 +180,7 @@ function Slide1() {
 
         <div style={{ height:3, width:300, background:`linear-gradient(to right,${C.purple},${C.cyan})`, borderRadius:2, marginBottom:24, animation:"fadeUp .5s ease .25s both" }} />
 
-        <div style={{ background:C.bgCard, borderRadius:10, borderLeft:`3px solid ${C.cyan}`, border:`1px solid ${C.cyan}33`, borderLeft:`3px solid ${C.cyan}`, padding:"18px 22px", maxWidth:660, animation:"fadeUp .6s ease .35s both" }}>
+        <div style={{ background:C.bgCard, borderRadius:10, border:`1px solid ${C.cyan}33`, borderLeft:`3px solid ${C.cyan}`, padding:"18px 22px", maxWidth:660, animation:"fadeUp .6s ease .35s both" }}>
           <p className="dm" style={{ color:C.gray, fontSize:14.5, fontStyle:"italic", lineHeight:1.9 }}>
             "Hepimiz her gün onlarca kez bir şeyleri beğeniyor, paylaşıyor veya kaydırıyoruz.
             Peki, ekrandaki o masum <span style={{color:C.cyan}}>'Gönder'</span> butonuna bastığınız saniyede,
@@ -278,7 +249,7 @@ function Slide2() {
         Masum Bir Tıklamanın Arkasındaki <span style={{ color:C.cyan }}>Fırtına</span>
       </h2>
 
-      <div style={{ background:C.bgCard, borderRadius:10, borderLeft:`3px solid ${C.cyan}`, border:`1px solid ${C.cyan}22`, borderLeft:`3px solid ${C.cyan}`, padding:"18px 22px", marginBottom:20, animation:"fadeUp .5s ease .1s both" }}>
+      <div style={{ background:C.bgCard, borderRadius:10, border:`1px solid ${C.cyan}22`, borderLeft:`3px solid ${C.cyan}`, padding:"18px 22px", marginBottom:20, animation:"fadeUp .5s ease .1s both" }}>
         <Para text={`
           Hepimiz her gün onlarca kez bir şeyleri beğeniyor, paylaşıyor veya kaydırıyoruz.
           Peki, ekrandaki o masum <span style="color:#00D9FF">'Gönder'</span> butonuna bastığınız saniyede,
@@ -337,7 +308,7 @@ function Slide3() {
 
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:18, flex:1 }}>
         <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
-          <div style={{ background:C.bgCard, borderRadius:10, borderLeft:`3px solid ${C.red}`, border:`1px solid ${C.red}22`, borderLeft:`3px solid ${C.red}`, padding:"18px 20px", animation:"fadeUp .5s ease .1s both" }}>
+          <div style={{ background:C.bgCard, borderRadius:10, border:`1px solid ${C.red}22`, borderLeft:`3px solid ${C.red}`, padding:"18px 20px", animation:"fadeUp .5s ease .1s both" }}>
             <Para text={`
               Attığınız bir adımın ilk durağı <span style="color:#EF4444">güvenlik filtreleridir</span>.
               Diyelim ki sisteme yasaklı bir kelime yazdınız ve aralara noktalar koyarak
@@ -347,7 +318,7 @@ function Slide3() {
             `} />
           </div>
 
-          <div style={{ background:C.bgCard, borderRadius:10, borderLeft:`3px solid ${C.orange}`, border:`1px solid ${C.orange}22`, borderLeft:`3px solid ${C.orange}`, padding:"18px 20px", animation:"fadeUp .5s ease .2s both" }}>
+          <div style={{ background:C.bgCard, borderRadius:10, border:`1px solid ${C.orange}22`, borderLeft:`3px solid ${C.orange}`, padding:"18px 20px", animation:"fadeUp .5s ease .2s both" }}>
             <Para text={`
               Sistem burada metni <span style="color:#00D9FF">Array (Dizi)</span> veri yapısına bölerek parçalar
               ve <span style="color:#7C3AED">Regex (Düzenli İfadeler)</span> algoritmalarını koşturur.
@@ -429,7 +400,7 @@ function Slide4() {
 
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:18, flex:1 }}>
         <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
-          <div style={{ background:C.bgCard, borderRadius:10, borderLeft:`3px solid ${C.green}`, border:`1px solid ${C.green}22`, borderLeft:`3px solid ${C.green}`, padding:"18px 20px", animation:"fadeUp .5s ease .1s both" }}>
+          <div style={{ background:C.bgCard, borderRadius:10, border:`1px solid ${C.green}22`, borderLeft:`3px solid ${C.green}`, padding:"18px 20px", animation:"fadeUp .5s ease .1s both" }}>
             <Para text={`
               Peki milyarlarca kullanıcının verisi nerede duruyor? Devasa şirketler,
               sizin o <span style="color:#10B981">dijital ikizinizi</span> eski usul, sıkıcı ve kısıtlayıcı
@@ -439,7 +410,7 @@ function Slide4() {
             `} />
           </div>
 
-          <div style={{ background:C.bgCard, borderRadius:10, borderLeft:`3px solid ${C.cyan}`, border:`1px solid ${C.cyan}22`, borderLeft:`3px solid ${C.cyan}`, padding:"18px 20px", animation:"fadeUp .5s ease .2s both" }}>
+          <div style={{ background:C.bgCard, borderRadius:10, border:`1px solid ${C.cyan}22`, borderLeft:`3px solid ${C.cyan}`, padding:"18px 20px", animation:"fadeUp .5s ease .2s both" }}>
             <Para text={`
               Bir profiliniz veya attığınız bir gönderi;
               <span style="color:#00D9FF">Dictionary (Sözlük)</span> ya da
@@ -451,7 +422,7 @@ function Slide4() {
             `} />
           </div>
 
-          <div style={{ background:C.bgCard, borderRadius:10, borderLeft:`3px solid ${C.purple}`, border:`1px solid ${C.purple}22`, borderLeft:`3px solid ${C.purple}`, padding:"18px 20px", animation:"fadeUp .5s ease .3s both" }}>
+          <div style={{ background:C.bgCard, borderRadius:10, border:`1px solid ${C.purple}22`, borderLeft:`3px solid ${C.purple}`, padding:"18px 20px", animation:"fadeUp .5s ease .3s both" }}>
             <Para text={`
               Üstelik milyonlarca gönderi arasından sizin o tek bir yorumunuzu bulmak için
               sistem her şeye sırayla bakmaz. İşin içine
@@ -550,8 +521,8 @@ function Slide5() {
 
       <div style={{ display:"flex", alignItems:"stretch", gap:0, marginBottom:22, animation:"fadeUp .5s ease .1s both" }}>
         {flow.map((f, i) => (
-          <>
-            <div key={i} style={{
+          <Fragment key={i}>
+            <div style={{
               flex:1, background: step >= i ? `${f.color}14` : C.bgCard,
               border:`1px solid ${step >= i ? f.color : C.dark}`,
               borderRadius:10, padding:"16px 14px", textAlign:"center",
@@ -562,15 +533,15 @@ function Slide5() {
               <div className="dm" style={{ fontSize:11.5, color:C.gray, lineHeight:1.5 }}>{f.sub}</div>
             </div>
             {i < 2 && (
-              <div key={`a${i}`} style={{ padding:"0 10px", fontSize:22, color: step > i ? C.orange : C.dark, transition:"color .5s", display:"flex", alignItems:"center" }}>→</div>
+              <div style={{ padding:"0 10px", fontSize:22, color: step > i ? C.orange : C.dark, transition:"color .5s", display:"flex", alignItems:"center" }}>→</div>
             )}
-          </>
+          </Fragment>
         ))}
       </div>
 
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:18, flex:1 }}>
         <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
-          <div style={{ background:C.bgCard, borderRadius:10, borderLeft:`3px solid ${C.orange}`, border:`1px solid ${C.orange}22`, borderLeft:`3px solid ${C.orange}`, padding:"18px 20px", animation:"fadeUp .5s ease .2s both" }}>
+          <div style={{ background:C.bgCard, borderRadius:10, border:`1px solid ${C.orange}22`, borderLeft:`3px solid ${C.orange}`, padding:"18px 20px", animation:"fadeUp .5s ease .2s both" }}>
             <Para text={`
               Tabii her şey sadece metin değil. Havalı bir fotoğraf paylaştığınızda,
               sistem bu ağır dosyayı doğrudan veritabanına <span style="color:#EF4444">tıkıştırmaz</span>.
@@ -580,7 +551,7 @@ function Slide5() {
             `} />
           </div>
 
-          <div style={{ background:C.bgCard, borderRadius:10, borderLeft:`3px solid ${C.cyan}`, border:`1px solid ${C.cyan}22`, borderLeft:`3px solid ${C.cyan}`, padding:"18px 20px", animation:"fadeUp .5s ease .3s both" }}>
+          <div style={{ background:C.bgCard, borderRadius:10, border:`1px solid ${C.cyan}22`, borderLeft:`3px solid ${C.cyan}`, padding:"18px 20px", animation:"fadeUp .5s ease .3s both" }}>
             <Para text={`
               Görselleriniz <span style="color:#00D9FF">Bucket (Kova)</span> mantığıyla çalışan
               harici dosya sunucularına atılır. Veritabanında ise sadece o fotoğrafın güvenli,
@@ -639,7 +610,7 @@ function Slide6() {
 
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:18, flex:1 }}>
         <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
-          <div style={{ background:C.bgCard, borderRadius:10, borderLeft:`3px solid ${C.orange}`, border:`1px solid ${C.orange}22`, borderLeft:`3px solid ${C.orange}`, padding:"18px 20px", animation:"fadeUp .5s ease .1s both" }}>
+          <div style={{ background:C.bgCard, borderRadius:10, border:`1px solid ${C.orange}22`, borderLeft:`3px solid ${C.orange}`, padding:"18px 20px", animation:"fadeUp .5s ease .1s both" }}>
             <Para text={`
               Uygulamayı açtığınızda neden hep en yeni gönderiler en üstte çıkar?
               Veritabanındaki her kaydın içinde görünmez bir
@@ -674,7 +645,7 @@ function Slide6() {
         </div>
 
         <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
-          <div style={{ background:C.bgCard, borderRadius:10, borderLeft:`3px solid ${C.purple}`, border:`1px solid ${C.purple}22`, borderLeft:`3px solid ${C.purple}`, padding:"18px 20px", animation:"fadeUp .5s ease .2s both" }}>
+          <div style={{ background:C.bgCard, borderRadius:10, border:`1px solid ${C.purple}22`, borderLeft:`3px solid ${C.purple}`, padding:"18px 20px", animation:"fadeUp .5s ease .2s both" }}>
             <Para text={`
               Ama işin en hayati kısmı <span style="color:#7C3AED">şifrelerinizdir</span>.
               Şifreleriniz sistemlere asla '123456' gibi açık metin olarak kaydedilmez.
@@ -758,7 +729,7 @@ function Slide7() {
           <div style={{ height:3, width:280, margin:"0 auto", background:`linear-gradient(to right,${C.purple},${C.cyan})`, borderRadius:2 }} />
         </div>
 
-        <div style={{ background:C.bgCard, borderRadius:12, padding:"20px 26px", borderLeft:`4px solid ${C.cyan}`, border:`1px solid ${C.cyan}22`, borderLeft:`4px solid ${C.cyan}`, marginBottom:16, animation:"fadeUp .5s ease .4s both" }}>
+        <div style={{ background:C.bgCard, borderRadius:12, padding:"20px 26px", border:`1px solid ${C.cyan}22`, borderLeft:`4px solid ${C.cyan}`, marginBottom:16, animation:"fadeUp .5s ease .4s both" }}>
           <Para text={`
             Bütün bu algoritmalar, esnek veri yapıları ve bulut sunucular tek bir şey için çalışıyor:
             <span style="color:#00D9FF">Sizi sizden daha iyi tanımak.</span>
@@ -798,7 +769,7 @@ function Slide7() {
   );
 }
 
-/* ═══════════════════ ANA UYGULAMA ═══════════════════ */
+/* ═══════════════════ ANA BİLEŞEN ═══════════════════ */
 const slides = [
   { component: Slide1, title: "Kapak"         },
   { component: Slide2, title: "Giriş"         },
@@ -809,9 +780,39 @@ const slides = [
   { component: Slide7, title: "Kapanış"       },
 ];
 
-export default function App() {
+export default function Feed() {
   const [current, setCurrent] = useState(0);
   const [animKey, setAnimKey] = useState(0);
+
+  // CSS & font injection — component içinde, kurallara uygun
+  useEffect(() => {
+    const styleEl = document.createElement("style");
+    styleEl.textContent = `
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body { background: #0D1117; }
+
+      @keyframes fadeUp   { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+      @keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+      @keyframes blink    { 0%,100%{opacity:1;} 50%{opacity:0;} }
+      @keyframes float    { 0%,100%{transform:translateY(0px);} 50%{transform:translateY(-10px);} }
+      @keyframes pulse    { 0%,100%{opacity:1;} 50%{opacity:.4;} }
+      @keyframes matrixFall { 0%{opacity:1;transform:translateY(-10px);} 100%{opacity:0;transform:translateY(130px);} }
+
+      .slide-enter { animation: fadeIn .45s ease both; }
+      .card-hover  { transition: transform .2s ease, box-shadow .2s ease; }
+      .card-hover:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(0,0,0,.55); }
+      .syne { font-family:'Syne',sans-serif; }
+      .dm   { font-family:'DM Sans',sans-serif; }
+      .mono { font-family:'JetBrains Mono',monospace; }
+
+      ::-webkit-scrollbar { width:5px; }
+      ::-webkit-scrollbar-track { background:#0D1117; }
+      ::-webkit-scrollbar-thumb { background:#30363D; border-radius:3px; }
+    `;
+    document.head.appendChild(styleEl);
+    return () => document.head.removeChild(styleEl);
+  }, []);
 
   const goTo = (i) => { if (i === current) return; setCurrent(i); setAnimKey(k => k + 1); };
   const prev = () => { if (current > 0) goTo(current - 1); };
@@ -830,6 +831,7 @@ export default function App() {
 
   return (
     <div style={{ minHeight:"100vh", background:C.bg, display:"flex", flexDirection:"column", fontFamily:"'DM Sans',sans-serif" }}>
+      {/* Üst bar */}
       <div style={{ background:"#08090D", borderBottom:`1px solid ${C.dark}`, padding:"10px 24px", display:"flex", alignItems:"center", justifyContent:"space-between", flexShrink:0 }}>
         <div style={{ display:"flex", alignItems:"center", gap:12 }}>
           <div style={{ width:30, height:30, borderRadius:7, background:`linear-gradient(135deg,${C.cyan},${C.purple})`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:15 }}>🔍</div>
@@ -844,16 +846,19 @@ export default function App() {
         </div>
       </div>
 
+      {/* Progress bar */}
       <div style={{ height:2, background:C.dark, flexShrink:0 }}>
         <div style={{ height:"100%", background:`linear-gradient(to right,${C.cyan},${C.purple})`, width:`${((current+1)/slides.length)*100}%`, transition:"width .4s ease" }} />
       </div>
 
+      {/* Slayt içeriği */}
       <div style={{ flex:1, overflow:"hidden", position:"relative" }}>
         <div key={animKey} className="slide-enter" style={{ height:"100%", padding:"28px 40px 22px", overflowY:"auto", position:"relative" }}>
           <Comp />
         </div>
       </div>
 
+      {/* Alt bar */}
       <div style={{ background:"#08090D", borderTop:`1px solid ${C.dark}`, padding:"8px 22px", display:"flex", gap:4, alignItems:"center", flexShrink:0 }}>
         {slides.map((sl, i) => (
           <button key={i} onClick={() => goTo(i)} style={{

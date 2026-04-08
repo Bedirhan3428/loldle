@@ -1,12 +1,29 @@
 
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Leaf } from 'lucide-react';
+import React, { useState } from 'react';
+
+// İkonları dışarıdan almak yerine doğrudan SVG olarak ekliyoruz
+const LeafIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M11 20A7 7 0 0 1 14 6h7v7a7 7 0 0 1-7 7h-3Z"/><path d="M14 6v6a3 3 0 0 1-3 3h-4"/>
+  </svg>
+);
+
+const ChevronLeftIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="m15 18-6-6 6-6"/>
+  </svg>
+);
+
+const ChevronRightIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="m9 18 6-6-6-6"/>
+  </svg>
+);
 
 export default function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Detaylandırılmış 5 sayfalık sunum verisi
   const slides = [
     {
       id: 1,
@@ -57,23 +74,19 @@ export default function App() {
     setTimeout(() => {
       callback();
       setIsAnimating(false);
-    }, 300); // Yarım saniyelik yumuşak geçiş
+    }, 300);
   };
 
   const current = slides[currentSlide];
 
   return (
     <div className="min-h-screen bg-white text-slate-800 font-sans flex items-center justify-center p-4 lg:p-12">
-      
-      {/* Masaüstünde yan yana, mobilde alt alta duran modern kart yapısı */}
       <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
         
-        {/* Sol Taraf: Metin ve Kontroller */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center order-2 lg:order-1">
-          
           <div className="flex items-center gap-3 mb-6">
             <div className="bg-green-100 p-3 rounded-full text-green-600">
-              <Leaf size={24} />
+              <LeafIcon />
             </div>
             <span className="text-green-600 font-semibold tracking-wider uppercase text-sm">
               Sayfa {currentSlide + 1} / {slides.length}
@@ -84,13 +97,11 @@ export default function App() {
             <h1 className="text-4xl lg:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
               {current.title}
             </h1>
-            
             <p className="text-lg lg:text-xl text-slate-600 mb-12 leading-relaxed text-justify lg:text-left">
               {current.description}
             </p>
           </div>
 
-          {/* Kontrol Butonları ve İlerleme Çubuğu */}
           <div className="flex items-center gap-8 mt-auto pt-8 border-t border-slate-100">
             <div className="flex gap-4">
               <button 
@@ -98,7 +109,7 @@ export default function App() {
                 disabled={currentSlide === 0}
                 className={`p-4 rounded-full flex items-center justify-center transition-all duration-300 ${currentSlide === 0 ? 'bg-slate-50 text-slate-300 cursor-not-allowed' : 'bg-white border-2 border-slate-200 text-slate-700 hover:border-green-500 hover:text-green-600 shadow-sm hover:shadow-md'}`}
               >
-                <ChevronLeft size={28} />
+                <ChevronLeftIcon />
               </button>
               
               <button 
@@ -106,7 +117,7 @@ export default function App() {
                 disabled={currentSlide === slides.length - 1}
                 className={`p-4 rounded-full flex items-center justify-center transition-all duration-300 ${currentSlide === slides.length - 1 ? 'bg-slate-50 text-slate-300 cursor-not-allowed' : 'bg-green-600 text-white hover:bg-green-700 shadow-md hover:shadow-lg'}`}
               >
-                <ChevronRight size={28} />
+                <ChevronRightIcon />
               </button>
             </div>
 
@@ -121,7 +132,6 @@ export default function App() {
           </div>
         </div>
         
-        {/* Sağ Taraf: Büyük Görsel */}
         <div className="w-full lg:w-1/2 order-1 lg:order-2">
           <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl bg-slate-100">
             <img 
@@ -130,7 +140,6 @@ export default function App() {
               alt={current.title} 
               className={`w-full h-full object-cover transition-all duration-700 ${isAnimating ? 'scale-110 opacity-50' : 'scale-100 opacity-100'}`}
             />
-            {/* Görselin üzerine hafif bir gölge efekti (daha şık durması için) */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
           </div>
         </div>
@@ -139,4 +148,3 @@ export default function App() {
     </div>
   );
 }
-

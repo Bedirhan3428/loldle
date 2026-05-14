@@ -29,9 +29,10 @@ const FadeInCard = ({ children, delay = 0 }) => {
   );
 };
 
-export default function App() {
-  const imageId = "1UsuvHmWtc0S6MvWEGKo-F8v236ZMSpjo";
-  const videoId = "1ABEcdeF4BSDgZOYchX8kzNONJVFTihaZ";
+export default function Feed() {
+  // Yeni linkler eklendi
+  const imageUrl = "https://i.hizliresim.com/2ydo4v5.jpg";
+  const videoUrl = "https://files.fm/u/f7xf498eyx";
 
   // Normal CSS kodları
   const cssStyles = `
@@ -167,7 +168,7 @@ export default function App() {
               <h2>Proje Görseli</h2>
               <div className="media-wrapper">
                 <img
-                  src={`https://drive.google.com/uc?export=view&id=${imageId}`}
+                  src={imageUrl}
                   alt="İHA Proje Fotoğrafı"
                   onError={(e) => {
                     e.target.onerror = null; 
@@ -181,7 +182,7 @@ export default function App() {
               <h2>Uçuş & Tanıtım Videosu</h2>
               <div className="media-wrapper">
                 <iframe
-                  src={`https://drive.google.com/file/d/${videoId}/preview`}
+                  src={videoUrl}
                   title="İHA Video"
                   allow="autoplay; encrypted-media"
                   allowFullScreen

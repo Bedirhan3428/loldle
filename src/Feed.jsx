@@ -1,4 +1,4 @@
-react import React, { useEffect, useRef,useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // Kaydırma animasyonu için özel kart bileşeni
 const FadeInCard = ({ children, delay = 0 }) => {
@@ -33,6 +33,10 @@ const FadeInCard = ({ children, delay = 0 }) => {
 };
 
 export default function App() {
+  // Google Drive dosya ID'leri
+  const imageId = "1UsuvHmWtc0S6MvWEGKo-F8v236ZMSpjo";
+  const videoId = "1ABEcdeF4BSDgZOYchX8kzNONJVFTihaZ";
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans overflow-x-hidden pb-12 relative">
       
@@ -59,11 +63,15 @@ export default function App() {
             <h2 className="text-2xl font-semibold mb-6 pl-4 border-l-4 border-blue-500 text-slate-100">
               Proje Görseli
             </h2>
-            <div className="rounded-2xl overflow-hidden bg-black/50 aspect-auto md:aspect-video relative group border border-white/5">
+            <div className="rounded-2xl overflow-hidden bg-black/50 aspect-auto md:aspect-video relative group border border-white/5 flex items-center justify-center">
               <img
-                src="1778786410698.jpeg"
+                src={`https://drive.google.com/uc?export=view&id=${imageId}`}
                 alt="İHA Proje Fotoğrafı"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                onError={(e) => {
+                  e.target.onerror = null; 
+                  e.target.src = 'https://via.placeholder.com/800x450?text=Görsel+Yüklenemedi+(Erişim+İzni+Gerekebilir)';
+                }}
               />
             </div>
           </FadeInCard>
@@ -74,14 +82,13 @@ export default function App() {
               Uçuş & Tanıtım Videosu
             </h2>
             <div className="rounded-2xl overflow-hidden bg-black/50 aspect-video relative group border border-white/5">
-              <video
-                controls
-                poster="1778786410698.jpeg"
-                className="w-full h-full object-cover"
-              >
-                <source src="video.mp4" type="video/mp4" />
-                Tarayıcınız video oynatmayı desteklemiyor.
-              </video>
+              <iframe
+                src={`https://drive.google.com/file/d/${videoId}/preview`}
+                title="İHA Video"
+                className="w-full h-full absolute top-0 left-0 border-0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              ></iframe>
             </div>
           </FadeInCard>
 
@@ -96,5 +103,3 @@ export default function App() {
     </div>
   );
 }
-
-

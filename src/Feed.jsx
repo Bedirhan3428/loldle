@@ -30,11 +30,10 @@ const FadeInCard = ({ children, delay = 0 }) => {
 };
 
 export default function Feed() {
-  // Yeni linkler eklendi
+  // Görsel ve yeni Firebase video linki
   const imageUrl = "https://i.hizliresim.com/2ydo4v5.jpg";
-  const videoUrl = "https://files.fm/u/f7xf498eyx";
+  const videoUrl = "https://firebasestorage.googleapis.com/v0/b/sigalmedia.firebasestorage.app/o/lv_0_20260514201923.mp4?alt=media&token=fee817ab-673e-4ce6-b7bf-54c9481d72fe";
 
-  // Normal CSS kodları
   const cssStyles = `
     * {
         margin: 0;
@@ -126,7 +125,7 @@ export default function Feed() {
         justify-content: center;
         border: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .media-wrapper img, .media-wrapper iframe {
+    .media-wrapper img, .media-wrapper video {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -181,12 +180,10 @@ export default function Feed() {
             <FadeInCard delay={200}>
               <h2>Uçuş & Tanıtım Videosu</h2>
               <div className="media-wrapper">
-                <iframe
-                  src={videoUrl}
-                  title="İHA Video"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                ></iframe>
+                <video controls preload="metadata">
+                  <source src={videoUrl} type="video/mp4" />
+                  Tarayıcınız video oynatmayı desteklemiyor.
+                </video>
               </div>
             </FadeInCard>
           </div>

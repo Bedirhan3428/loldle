@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-// Kaydırma animasyonu için özel kart bileşeni
 const FadeInCard = ({ children, delay = 0 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef();
@@ -13,7 +12,7 @@ const FadeInCard = ({ children, delay = 0 }) => {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.15 } // %15'i görününce tetikle
+      { threshold: 0.15 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -22,9 +21,7 @@ const FadeInCard = ({ children, delay = 0 }) => {
   return (
     <div
       ref={ref}
-      className={`w-full max-w-4xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 backdrop-blur-xl shadow-2xl transition-all duration-1000 ease-out hover:scale-[1.02] hover:border-white/20 hover:shadow-blue-500/20 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
-      }`}
+      className={`card ${isVisible ? 'visible' : ''}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -33,73 +30,172 @@ const FadeInCard = ({ children, delay = 0 }) => {
 };
 
 export default function App() {
-  // Google Drive dosya ID'leri
   const imageId = "1UsuvHmWtc0S6MvWEGKo-F8v236ZMSpjo";
   const videoId = "1ABEcdeF4BSDgZOYchX8kzNONJVFTihaZ";
 
+  // Normal CSS kodları
+  const cssStyles = `
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .vitrin-body {
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        background-color: #0f172a;
+        color: #f8fafc;
+        line-height: 1.6;
+        min-height: 100vh;
+        overflow-x: hidden;
+        background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, transparent 70%);
+        padding-bottom: 50px;
+    }
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 10;
+    }
+    .hero-title {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        text-align: center;
+        margin-top: 12vh;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #60a5fa, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: fadeDown 1s ease-out;
+    }
+    .subtitle {
+        text-align: center;
+        color: #94a3b8;
+        font-size: 1.2rem;
+        margin-bottom: 4rem;
+        animation: fadeUp 1s ease-out 0.4s both;
+    }
+    .sections-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+    }
+    .card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        padding: 30px;
+        width: 100%;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transform: translateY(40px);
+        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .card.visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .card:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 30px 60px -15px rgba(96, 165, 250, 0.2);
+        border-color: rgba(255, 255, 255, 0.15);
+    }
+    .card h2 {
+        font-size: 1.5rem;
+        color: #e2e8f0;
+        margin-bottom: 1.5rem;
+        padding-left: 12px;
+        border-left: 4px solid #3b82f6;
+    }
+    .card:nth-child(2) h2 {
+        border-left-color: #a855f7;
+    }
+    .media-wrapper {
+        width: 100%;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        background: rgba(0,0,0,0.5);
+        aspect-ratio: 16 / 9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .media-wrapper img, .media-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: none;
+        transition: transform 0.7s ease;
+    }
+    .media-wrapper:hover img {
+        transform: scale(1.05);
+    }
+    @keyframes fadeDown {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    footer {
+        text-align: center;
+        margin-top: 5rem;
+        color: #64748b;
+        font-size: 0.9rem;
+    }
+  `;
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans overflow-x-hidden pb-12 relative">
-      
-      {/* Arka plan parlama efekti */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none" />
-
-      <div className="relative z-10 container mx-auto px-4 sm:px-6">
-        
-        {/* Başlık */}
-        <header className="pt-28 pb-20 text-center animate-fade-in-down">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
-            İHA Proje Vitrini
-          </h1>
-          <p className="text-slate-400 text-lg md:text-xl tracking-wide font-medium">
-            Mustafa • Tasarım & Mühendislik
-          </p>
-        </header>
-
-        {/* İçerik Kartları */}
-        <div className="space-y-16">
+    <>
+      <style>{cssStyles}</style>
+      <div className="vitrin-body">
+        <div className="container">
           
-          {/* Fotoğraf Alanı */}
-          <FadeInCard delay={0}>
-            <h2 className="text-2xl font-semibold mb-6 pl-4 border-l-4 border-blue-500 text-slate-100">
-              Proje Görseli
-            </h2>
-            <div className="rounded-2xl overflow-hidden bg-black/50 aspect-auto md:aspect-video relative group border border-white/5 flex items-center justify-center">
-              <img
-                src={`https://drive.google.com/uc?export=view&id=${imageId}`}
-                alt="İHA Proje Fotoğrafı"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                onError={(e) => {
-                  e.target.onerror = null; 
-                  e.target.src = 'https://via.placeholder.com/800x450?text=Görsel+Yüklenemedi+(Erişim+İzni+Gerekebilir)';
-                }}
-              />
-            </div>
-          </FadeInCard>
+          <header>
+            <h1 className="hero-title">İHA Proje Vitrini</h1>
+            <p className="subtitle">Mustafa • Tasarım & Mühendislik</p>
+          </header>
 
-          {/* Video Alanı */}
-          <FadeInCard delay={200}>
-            <h2 className="text-2xl font-semibold mb-6 pl-4 border-l-4 border-purple-500 text-slate-100">
-              Uçuş & Tanıtım Videosu
-            </h2>
-            <div className="rounded-2xl overflow-hidden bg-black/50 aspect-video relative group border border-white/5">
-              <iframe
-                src={`https://drive.google.com/file/d/${videoId}/preview`}
-                title="İHA Video"
-                className="w-full h-full absolute top-0 left-0 border-0"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </FadeInCard>
+          <div className="sections-wrapper">
+            <FadeInCard delay={0}>
+              <h2>Proje Görseli</h2>
+              <div className="media-wrapper">
+                <img
+                  src={`https://drive.google.com/uc?export=view&id=${imageId}`}
+                  alt="İHA Proje Fotoğrafı"
+                  onError={(e) => {
+                    e.target.onerror = null; 
+                    e.target.src = 'https://via.placeholder.com/800x450?text=Görsel+Yüklenemedi';
+                  }}
+                />
+              </div>
+            </FadeInCard>
+
+            <FadeInCard delay={200}>
+              <h2>Uçuş & Tanıtım Videosu</h2>
+              <div className="media-wrapper">
+                <iframe
+                  src={`https://drive.google.com/file/d/${videoId}/preview`}
+                  title="İHA Video"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </FadeInCard>
+          </div>
+
+          <footer>
+            <p>© 2026 Mustafa. Tüm hakları saklıdır.</p>
+          </footer>
 
         </div>
-
-        {/* Altbilgi */}
-        <footer className="mt-28 text-center text-slate-500 text-sm font-medium">
-          <p>© 2026 Mustafa. Tüm hakları saklıdır.</p>
-        </footer>
-
       </div>
-    </div>
+    </>
   );
 }

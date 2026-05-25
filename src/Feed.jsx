@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Heart, RefreshCw, Copy, BookOpen, Clock, Trash2, Check, BookMarked } from 'lucide-react';
 
@@ -497,4 +496,3 @@ export default function App() {
     </div>
   );
 }
-

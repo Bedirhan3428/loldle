@@ -12,7 +12,7 @@ const VERSES_DATABASE = [
   { id: 7, surah: "Talâk Suresi, 3. Ayet", arabic: "وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ", turkish: "Kim Allah'a tevekkül ederse, O kendisine yeter." },
   { id: 8, surah: "Bakara Suresi, 286. Ayet", arabic: "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وَسْعَهَا", turkish: "Allah hiç kimseye gücünün yeteceğinden fazlasını yüklemez." },
   { id: 9, surah: "Âl-i İmrân Suresi, 139. Ayet", arabic: "وَلَا تَهِنُوا وَلَا تَحْزَنُوا", turkish: "Gevşemeyin, hüzünlenmeyin." },
-  { id: 10, surah: "Duha Suresi, 3. Ayet", arabic: "مَا وَدَّعَكَ رَبُ\\كَ وَمَا قَلَى", turkish: "Rabbin seni bırakmadı ve sana darılmadı." },
+  { id: 10, surah: "Duha Suresi, 3. Ayet", arabic: "مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَى", turkish: "Rabbin seni bırakmadı ve sana darılmadı." },
   { id: 11, surah: "Tâhâ Suresi, 114. Ayet", arabic: "رَّبِّ زِدْنِي عِلْمًا", turkish: "Rabbim, benim ilmimi artır." },
   { id: 12, surah: "Yûsuf Suresi, 86. Ayet", arabic: "إِنَّمَا أَشْكُو بَثِّي وَحُزْنِي إِلَى اللَّهِ", turkish: "Ben hüznümü ve tasamı yalnız Allah'a arz ederim." },
   { id: 13, surah: "Mü'min Suresi, 60. Ayet", arabic: "ادْعُونِي أَسْتَجِبْ لَكُمْ", turkish: "Bana dua edin, size icabet edeyim." },
@@ -33,12 +33,12 @@ const VERSES_DATABASE = [
   { id: 28, surah: "Kehf Suresi, 24. Ayet", arabic: "عَسَىٰ أَن يَهْدِيَنِ رَبِّي لِأَقْرَبَ مِنْ هَٰذَا رَشَدًا", turkish: "Umarım Rabbim beni doğruya daha yakın olana eriştirir." },
   { id: 29, surah: "Ankebût Suresi, 45. Ayet", arabic: "وَلَذِكْرُ اللَّهِ أَكْبَرُ", turkish: "Şüphesiz Allah'ı anmak en büyük ibadettir." },
   { id: 30, surah: "Hadîd Suresi, 4. Ayet", arabic: "وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ", turkish: "Nerede olursanız olun, O sizinle beraberdir." },
-  { id: 31, surah: "İsrâ Suresi, 81. Ayet", arabic: "جَاءَ الْحَقُّ وَزَهَقَ الْبَاطِلُ", turkish: "Hak geldi, batıl yok oldu." },
+  { id: 31, surah: "İsrâ Suresi, 81. Ayet", arabic: "جَاءَ الْحَقُw وَزَهَقَ الْبَاطِلُ", turkish: "Hak geldi, batıl yok oldu." },
   { id: 32, surah: "İsrâ Suresi, 82. Ayet", arabic: "وَنُنَزِّلُ مِنَ الْقُرْآنِ مَا هُوَ شِفَاءٌ وَرَحْمَةٌ", turkish: "Biz Kur’an’dan müminler için şifa ve rahmet indiriyoruz." },
   { id: 33, surah: "Nahl Suresi, 128. Ayet", arabic: "إِنَّ اللَّهَ مَعَ الَّذِينَ اتَّقَوا", turkish: "Şüphesiz Allah, takva sahipleriyle beraberdir." },
-  { id: 34, surah: "İsrâ Suresi, 23. Ayet", arabic: "و@بِالْوَالِدَيْنِ إِحْسَانًا", turkish: "Ana babaya iyi davranın." },
+  { id: 34, surah: "İsrâ Suresi, 23. Ayet", arabic: "وَبِالْوَالِدَيْنِ إِحْسَانًا", turkish: "Ana babaya iyi davranın." },
   { id: 35, surah: "Kasas Suresi, 77. Ayet", arabic: "وَأَحْسِن كَمَا أَحْسَنَ اللَّهُ إِلَيْكَ", turkish: "Allah'ın sana iyilik yaptığı gibi, sen de iyilik yap." },
-  { id: 36, surah: "Kehf Suresi, 10. Ayet", arabic: "رَبَّنَا آتِنَا مِن لَّدُنكَ رَحْمَةً", turkish: "Rabbimiz, bize katından bir rahmet ver." },
+  { id: 36, surah: "Kehf Suresi, 10. Ayet", arabic: "رَبَّنَا آتِنَا مِن لَّdُنكَ رَحْمَةً", turkish: "Rabbimiz, bize katından bir rahmet ver." },
   { id: 37, surah: "Bakara Suresi, 195. Ayet", arabic: "وَأَحْسِنُواۚ إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ", turkish: "İyilik edin, şüphesiz Allah iyilik edenleri sever." },
   { id: 38, surah: "Secde Suresi, 17. Ayet", arabic: "فَلَا تَعْلَمُ نَفْسٌ مَّا أُخْفِيَ لَهُم مِّن قُرَّةِ أَعْيُنٍ", turkish: "Hiç kimse kendileri için saklanan müjdeyi bilemez." },
   { id: 39, surah: "Şûrâ Suresi, 30. Ayet", arabic: "وَمَا أَصَابَكُم مِّن مُّصِيبَةٍ فَبِمَا كَسَبَتْ أَيْدِيكُمْ", turkish: "Başınıza gelen her musibet kendi ellerinizle kazandıklarınız yüzündendir." },
@@ -60,10 +60,10 @@ const VERSES_DATABASE = [
   { id: 55, surah: "Tevbe Suresi, 129. Ayet", arabic: "حَسْبِيَ اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ", turkish: "Allah bana yeter, O'ndan başka ilah yoktur." },
   { id: 56, surah: "Hucurât Suresi, 10. Ayet", arabic: "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ", turkish: "Müminler ancak kardeştirler." },
   { id: 57, surah: "Şûrâ Suresi, 53. Ayet", arabic: "أَلَا إِلَى اللَّهِ تَصِيرُ الْأُمُورُ", turkish: "Bilesiniz ki bütün işler eninde sonunda Allah’a döner." },
-  { id: 58, surah: "Kehf Suresi, 46. Ayet", arabic: "وَالْبَاقِيَاتُ الصَّالِحَاتُ خَيْرٌ عِndَ رَبِّكَ", turkish: "Kalıcı olan güzel işler, Rabbinin katında daha hayırlıdır." },
+  { id: 58, surah: "Kehf Suresi, 46. Ayet", arabic: "وَالْبَاقِيَاتُ الصَّالِحَاتُ خَيْرٌ عِندَ رَبِّكَ", turkish: "Kalıcı olan güzel işler, Rabbinin katında daha hayırlıdır." },
   { id: 59, surah: "Âl-i İmrân Suresi, 54. Ayet", arabic: "وَاللَّهُ خَيْرُ الْمَاكِرِينَ", turkish: "Allah tuzak kuranların en hayırlısıdır." },
-  { id: 60, surah: "Nisâ Suresi, 28. Ayet", arabic: "وَخُلِقَ الْإِنسَانُ ضَعِيفًا", turkish: "Çünkü insan zayıf yaratılmıştır." },
-  { id: 61, surah: "Nisâ Suresi, 147. Ayet", arabic: "مَّا يَفْعَلُ اللَّهُ بِعَذَابِكُمْ إِن شَكَرْتُمْ وَآمَنتُمْ", turkish: "Eğer şükreder ve iman ederseniz, Allah size niye azap etsin?" },
+  { id: 60, surah: "Nisâ Suresi, 28. Ayet", arabic: "وَخُلِقَ الْإِnsَانُ ضَعِيفًا", turkish: "Çünkü insan zayıf yaratılmıştır." },
+  { id: 61, surah: "Nisâ Suresi, 147. Ayet", arabic: "مَّا يَفْعَلُ اللَّهُ بِعَذَابِكُمْ إِن şَكَرْتُمْ وَآمَنتُمْ", turkish: "Eğer şükreder ve iman ederseniz, Allah size niye azap etsin?" },
   { id: 62, surah: "Âl-i İmrân Suresi, 103. Ayet", arabic: "وَاعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا", turkish: "Hep birlikte Allah'ın ipine sımsıkı sarılın." },
   { id: 63, surah: "Bakara Suresi, 263. Ayet", arabic: "قَوْلٌ مَّعْرُوفٌ وَمَغْفِرَةٌ خَيْرٌ", turkish: "Güzel bir söz ve bağışlama daha hayırlıdır." },
   { id: 64, surah: "Bakara Suresi, 163. Ayet", arabic: "وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ", turkish: "Sizin ilahınız tek bir ilahtır." },
@@ -87,10 +87,10 @@ const VERSES_DATABASE = [
   { id: 83, surah: "Teğâbun Suresi, 11. Ayet", arabic: "وَمَن يُؤْمِن بِاللَّهِ يَهْدِ قَلْبَهُ", turkish: "Kim Allah'a inanırsa, O onun kalbini doğru yola iletir." },
   { id: 84, surah: "Teğâbun Suresi, 13. Ayet", arabic: "وَعَلَى اللَّهِ فَلْيَتَوَكَّلِ الْمُؤْمِنُونَ", turkish: "Müminler yalnız Allah'a tevekkül etsinler." },
   { id: 85, surah: "Mülk Suresi, 14. Ayet", arabic: "أَلَا يَعْلَمُ مَنْ خَلَقَ", turkish: "Yaratan bilmez mi?" },
-  { id: 86, surah: "Müzzemmil Suresi, 8. Ayet", arabic: "وَاذْكُرِ اسْمَ رَبِّكَ وَتَبَتَّلْ إِلَيْهِ تَبْتِيلًا", turkish: "Rabbininin adını an ve bütün varlığınla O'na yönel." },
+  { id: 86, surah: "Müzzemmil Suresi, 8. Ayet", arabic: "وَاذْكُرِ اسْمَ رَبِّكَ وَتَبَتَّلْ إِلَيْهِ تَبْتِيلًا", turkish: "Rabbinin adını an ve bütün varlığınla O'na yönel." },
   { id: 87, surah: "İnşirâh Suresi, 7. Ayet", arabic: "فَإِذَا فَرَغْتَ فَانصَبْ", turkish: "O halde boş kaldın mı, yine çalışıp yorul." },
   { id: 88, surah: "İnşirâh Suresi, 8. Ayet", arabic: "وَإِلَىٰ رَبِّكَ فَارْغَب", turkish: "Ve ancak Rabbine yönel." },
-  { id: 89, surah: "Şems Suresi, 9. Ayet", arabic: "قَدْ أَفْلَحَ مَن زَكَّاهَا", turkish: "Nefsini arındıran kesinlikle kurtuluşa ermiştir." },
+  { id: 89, surah: "Şems Suresi, 9. Ayet", arabic: "قَدْ أَfْلَحَ مَن زَكَّاهَا", turkish: "Nefsini arındıran kesinlikle kurtuluşa ermiştir." },
   { id: 90, surah: "Alak Suresi, 14. Ayet", arabic: "أَلَمْ يَعْلَم بِأَنَّ اللَّهَ يَرَىٰ", turkish: "O, Allah'ın her şeyi gördüğünü bilmez mi?" },
   { id: 91, surah: "Kadr Suresi, 3. Ayet", arabic: "لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ", turkish: "Kadir gecesi, bin aydan daha hayırlıdır." },
   { id: 92, surah: "Asr Suresi, 1. Ayet", arabic: "وَالْعَصْرِ", turkish: "Zamana andolsun ki," },
@@ -105,7 +105,7 @@ const VERSES_DATABASE = [
 ];
 
 export default function App() {
-  // Eyalet Yönetimi (Tamamı LocalStorage uyumlu)
+  // Eyalet Yapısı (LocalStorage uyumlu)
   const [currentAyah, setCurrentAyah] = useState(() => {
     const saved = localStorage.getItem('ayetsaati_current');
     if (saved) return JSON.parse(saved);
@@ -119,7 +119,7 @@ export default function App() {
 
   const [intervalTime, setIntervalTime] = useState(() => {
     const saved = localStorage.getItem('ayetsaati_interval');
-    return saved ? parseInt(saved, 10) : 3600; // Varsayılan: 1 saat
+    return saved ? parseInt(saved, 10) : 3600; 
   });
 
   const [timeLeft, setTimeLeft] = useState(() => {
@@ -142,22 +142,19 @@ export default function App() {
   
   const timerRef = useRef(null);
 
-  // Toast uyarı tetikleyici
   const showToast = (msg) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(''), 2500);
   };
 
-  // Yeni Rastgele Ayet Seçimi (Tekrar etmeden)
+  // Yeni Rastgele Ayet Seçimi (Tekrarsız)
   const nextRandomAyah = (isUserForced = false) => {
     let activeHistory = [...history];
     
-    // Eğer tüm veri tabanını gösterdiysek hafızayı sıfırlıyoruz
     if (activeHistory.length >= VERSES_DATABASE.length) {
       activeHistory = [];
     }
 
-    // Gösterilmemiş ayetleri listele
     const unshownVerses = VERSES_DATABASE.filter(verse => !activeHistory.includes(verse.id));
     const pool = unshownVerses.length > 0 ? unshownVerses : VERSES_DATABASE;
     const selected = pool[Math.floor(Math.random() * pool.length)];
@@ -174,7 +171,7 @@ export default function App() {
     }
   };
 
-  // Geri sayım sayacı mekanizması
+  // Zamanlayıcı
   useEffect(() => {
     if (timerRef.current) clearInterval(timerRef.current);
 
@@ -209,7 +206,6 @@ export default function App() {
     return () => clearInterval(timerRef.current);
   }, [intervalTime, history]);
 
-  // Otomatik geçiş aralığı değiştiğinde çalışır
   const handleIntervalChange = (e) => {
     const value = parseInt(e.target.value, 10);
     setIntervalTime(value);
@@ -221,7 +217,6 @@ export default function App() {
     showToast(`Geçiş süresi ayarlandı: ${e.target.options[e.target.selectedIndex].text}`);
   };
 
-  // Favorilere ekleme ve çıkarma
   const toggleFavorite = () => {
     if (!currentAyah) return;
 
@@ -240,7 +235,6 @@ export default function App() {
     localStorage.setItem('ayetsaati_favorites', JSON.stringify(updated));
   };
 
-  // Favoriyi listeden silme
   const removeFavorite = (id) => {
     const updated = favorites.filter(fav => fav.id !== id);
     setFavorites(updated);
@@ -248,7 +242,6 @@ export default function App() {
     showToast("Ayet silindi.");
   };
 
-  // Panoya Kopyalama (Kütüphanesiz)
   const copyToClipboard = () => {
     if (!currentAyah) return;
     const text = `"${currentAyah.turkish}"\n\n(${currentAyah.surah})\n\nArapça:\n${currentAyah.arabic}`;
@@ -268,7 +261,6 @@ export default function App() {
     document.body.removeChild(tempInput);
   };
 
-  // Saat formatı düzenleyici
   const formatTime = (totalSeconds) => {
     if (totalSeconds < 0) return "00:00:00";
     const h = Math.floor(totalSeconds / 3600).toString().padStart(2, '0');
@@ -281,242 +273,655 @@ export default function App() {
   const progressPercent = 100.53 - ((timeLeft / intervalTime) * 100.53);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between p-4 md:p-8 font-sans antialiased selection:bg-emerald-500/30 relative overflow-x-hidden">
-      
+    <div className="app-layout">
+      {/* Saf Yerleşik CSS Stilleri */}
+      <style>{`
+        /* Genel Sürüm Ayarları */
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        body {
+          background-color: #020617;
+          background-image: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+          color: #f8fafc;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          min-height: 100vh;
+        }
+
+        .app-layout {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          min-height: 100vh;
+          padding: 2rem 1.5rem;
+          max-width: 900px;
+          margin: 0 auto;
+          position: relative;
+        }
+
+        /* Header */
+        header {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 2rem;
+          width: 100%;
+        }
+
+        @media (max-width: 640px) {
+          header {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+        }
+
+        .header-brand {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
+        .brand-icon {
+          padding: 0.75rem;
+          background: rgba(16, 185, 129, 0.1);
+          border: 1px solid rgba(16, 185, 129, 0.2);
+          border-radius: 1rem;
+          color: #10b981;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .brand-title {
+          font-size: 1.5rem;
+          font-weight: 900;
+          letter-spacing: -0.025em;
+          background: linear-gradient(to right, #34d399, #14b8a6);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .brand-subtitle {
+          font-size: 0.75rem;
+          color: #94a3b8;
+        }
+
+        .header-control {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          background: rgba(15, 23, 42, 0.6);
+          border: 1px solid #1e293b;
+          padding: 0.5rem;
+          border-radius: 1rem;
+        }
+
+        .header-control label {
+          font-size: 0.75rem;
+          color: #94a3b8;
+          font-weight: 600;
+          padding-left: 0.5rem;
+          text-transform: uppercase;
+        }
+
+        .header-control select {
+          background: #020617;
+          color: #e2e8f0;
+          font-size: 0.75rem;
+          font-weight: 700;
+          border-radius: 0.75rem;
+          padding: 0.4rem 0.75rem;
+          border: 1px solid #1e293b;
+          cursor: pointer;
+          outline: none;
+        }
+
+        .header-control select:focus {
+          border-color: rgba(16, 185, 129, 0.5);
+        }
+
+        /* Ana Kart */
+        main {
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 1.5rem;
+          width: 100%;
+        }
+
+        .ayah-card {
+          position: relative;
+          background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(2, 6, 23, 0.4));
+          border: 1px solid rgba(30, 41, 59, 0.8);
+          border-radius: 1.5rem;
+          padding: 2rem;
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          min-height: 280px;
+        }
+
+        @media (max-width: 640px) {
+          .ayah-card {
+            padding: 1.5rem;
+          }
+        }
+
+        .card-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid rgba(30, 41, 59, 0.6);
+          padding-bottom: 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .ayah-source {
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: #10b981;
+          background: rgba(16, 185, 129, 0.1);
+          padding: 0.4rem 0.8rem;
+          border-radius: 9999px;
+          border: 1px solid rgba(16, 185, 129, 0.15);
+        }
+
+        .card-actions {
+          display: flex;
+          gap: 0.5rem;
+        }
+
+        .action-btn {
+          background: #020617;
+          border: 1px solid #1e293b;
+          color: #94a3b8;
+          padding: 0.6rem;
+          border-radius: 0.75rem;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+          background: rgba(16, 185, 129, 0.1);
+          color: #10b981;
+          border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .action-btn.favorite.active {
+          color: #f43f5e;
+          border-color: rgba(244, 63, 94, 0.2);
+          background: rgba(244, 63, 94, 0.1);
+        }
+
+        .arabic-text-container {
+          text-align: right;
+          margin-bottom: 2rem;
+        }
+
+        .arabic-text {
+          font-size: 1.75rem;
+          color: #ecfdf5;
+          line-height: 1.8;
+          direction: rtl;
+        }
+
+        .turkish-text-container {
+          border-t: 1px solid rgba(30, 41, 59, 0.4);
+          padding-top: 1.5rem;
+        }
+
+        .meal-title {
+          font-size: 0.65rem;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          font-weight: 900;
+          color: #64748b;
+          margin-bottom: 0.5rem;
+          display: block;
+        }
+
+        .turkish-text {
+          font-size: 1.05rem;
+          color: #cbd5e1;
+          line-height: 1.6;
+          font-weight: 300;
+        }
+
+        /* Kontrol Paneli Izgarası */
+        .controls-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+          align-items: center;
+        }
+
+        @media (max-width: 768px) {
+          .controls-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .primary-btn {
+          width: 100%;
+          padding: 1rem;
+          background: #0f172a;
+          border: 1px solid #1e293b;
+          border-radius: 1.25rem;
+          color: #10b981;
+          font-weight: 700;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          transition: all 0.2s;
+        }
+
+        .primary-btn:hover {
+          background: #1e293b;
+          border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .primary-btn:active {
+          transform: scale(0.98);
+        }
+
+        .timer-badge {
+          background: rgba(15, 23, 42, 0.4);
+          border: 1px solid rgba(30, 41, 59, 0.6);
+          border-radius: 1.25rem;
+          padding: 0.6rem 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+        }
+
+        .timer-circle-wrapper {
+          position: relative;
+          width: 2.25rem;
+          height: 2.25rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .timer-circle-wrapper svg {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          transform: rotate(-90deg);
+        }
+
+        .timer-info {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .timer-digits {
+          font-family: monospace;
+          font-weight: 900;
+          font-size: 1rem;
+          color: #f1f5f9;
+        }
+
+        .timer-label {
+          font-size: 0.55rem;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          font-weight: 700;
+        }
+
+        /* Toast Bildirim */
+        .custom-toast {
+          position: fixed;
+          top: 1.5rem;
+          right: 1.5rem;
+          z-index: 100;
+          background: #0f172a;
+          border: 1px solid rgba(16, 185, 129, 0.3);
+          color: #10b981;
+          padding: 0.85rem 1.25rem;
+          border-radius: 1rem;
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.85rem;
+          font-weight: 600;
+          animation: slideIn 0.3s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+          from {
+            transform: translateY(-1rem);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
+        /* Favoriler Modalı */
+        .modal-overlay {
+          position: fixed;
+          inset: 0;
+          z-index: 90;
+          background: rgba(2, 6, 23, 0.85);
+          backdrop-filter: blur(8px);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 1rem;
+        }
+
+        .modal-box {
+          background: #0f172a;
+          border: 1px solid #1e293b;
+          border-radius: 1.5rem;
+          max-width: 500px;
+          width: 100%;
+          max-height: 75vh;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-header {
+          padding: 1.25rem;
+          border-bottom: 1px solid #1e293b;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .modal-title-wrap {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: #e2e8f0;
+          font-weight: 800;
+          font-size: 1.1rem;
+        }
+
+        .modal-close {
+          background: #020617;
+          border: none;
+          color: #94a3b8;
+          font-size: 0.75rem;
+          font-weight: 700;
+          padding: 0.4rem 0.8rem;
+          border-radius: 0.75rem;
+          cursor: pointer;
+        }
+
+        .modal-close:hover {
+          background: #1e293b;
+          color: #f1f5f9;
+        }
+
+        .modal-body {
+          padding: 1.25rem;
+          overflow-y: auto;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .fav-item {
+          background: rgba(2, 6, 23, 0.4);
+          border: 1px solid #1e293b;
+          border-radius: 1rem;
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          transition: border-color 0.2s;
+        }
+
+        .fav-item:hover {
+          border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .fav-item-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .fav-surah {
+          font-size: 0.7rem;
+          color: #10b981;
+          font-weight: 700;
+          background: rgba(16, 185, 129, 0.1);
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.5rem;
+        }
+
+        .delete-btn {
+          background: transparent;
+          border: none;
+          color: #64748b;
+          cursor: pointer;
+          padding: 0.2rem;
+          border-radius: 0.5rem;
+          display: flex;
+          align-items: center;
+        }
+
+        .delete-btn:hover {
+          color: #ef4444;
+        }
+
+        .fav-arabic {
+          font-size: 1.25rem;
+          color: #ecfdf5;
+          text-align: right;
+          line-height: 1.6;
+        }
+
+        .fav-turkish {
+          font-size: 0.8rem;
+          color: #94a3b8;
+          font-style: italic;
+          line-height: 1.4;
+        }
+
+        .empty-favs {
+          text-align: center;
+          padding: 2.5rem 0;
+          color: #475569;
+          font-size: 0.85rem;
+          font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+          max-width: 900px;
+          width: 100%;
+          text-align: center;
+          margin-top: 2rem;
+          padding-top: 1.25rem;
+          border-top: 1px solid rgba(15, 23, 42, 0.8);
+        }
+
+        footer p {
+          font-size: 0.65rem;
+          color: #475569;
+          font-weight: 500;
+        }
+      `}</style>
+
       {/* Toast Bildirim Modülü */}
       {toastMessage && (
-        <div className="fixed top-6 right-6 z-50 bg-slate-900 border border-emerald-500/30 text-emerald-400 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2 animate-bounce">
-          {/* El Yapımı Onay İkonu */}
-          <svg className="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+        <div className="custom-toast">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
-          <span className="text-xs md:text-sm font-semibold tracking-wide">{toastMessage}</span>
+          <span>{toastMessage}</span>
         </div>
       )}
 
-      {/* Header Bölümü */}
-      <header className="max-w-4xl mx-auto w-full flex flex-col sm:flex-row justify-between items-center gap-4 mb-6 z-10">
-        <div className="flex items-center gap-3">
-          <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl text-emerald-400 shadow-lg">
-            {/* El Yapımı Kitap İkonu */}
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+      {/* Üst Kısım / Logo ve Seçim Alanı */}
+      <header>
+        <div className="header-brand">
+          <div className="brand-icon">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
             </svg>
           </div>
           <div>
-            <h1 className="text-xl md:text-2xl font-black tracking-tight bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
-              Ayet Saati
-            </h1>
-            <p className="text-[10px] md:text-xs text-slate-400 font-medium">100 Seçkin Kısa Ayet • Tamamen Çevrimdışı</p>
+            <h1 className="brand-title">Ayet Saati</h1>
+            <p className="brand-subtitle">100 Seçkin Kısa Ayet • Güvenli Çevrimdışı Feed</p>
           </div>
         </div>
 
-        {/* Zamanlayıcı Süre Seçimi */}
-        <div className="flex items-center gap-2 bg-slate-900/60 border border-slate-800 p-2 rounded-2xl backdrop-blur">
-          <label className="text-[10px] md:text-xs text-slate-400 pl-2 font-semibold uppercase tracking-wider">Otomatik Geçiş:</label>
-          <select 
-            value={intervalTime} 
-            onChange={handleIntervalChange}
-            className="bg-slate-950 text-slate-200 text-xs font-bold rounded-xl px-3 py-1.5 border border-slate-800 focus:outline-none focus:border-emerald-500/50 cursor-pointer"
-          >
+        <div className="header-control">
+          <label>Zamanlayıcı:</label>
+          <select value={intervalTime} onChange={handleIntervalChange}>
             <option value="3600">1 Saat</option>
             <option value="1800">30 Dakika</option>
             <option value="600">10 Dakika</option>
-            <option value="60">1 Dakika (Hızlı)</option>
-            <option value="10">10 Saniye (Hızlı Test)</option>
+            <option value="60">1 Dakika (Test)</option>
+            <option value="10">10 Saniye (Hızlı)</option>
           </select>
         </div>
       </header>
 
-      {/* Ana Ekran / Ayet Kartı */}
-      <main className="max-w-4xl mx-auto w-full flex-grow flex flex-col justify-center gap-6 z-10">
-        
-        <div className="relative bg-gradient-to-b from-slate-900/80 to-slate-950/40 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-6 md:p-10 shadow-2xl overflow-hidden min-h-[280px] flex flex-col justify-between transition-all duration-300">
-          
-          {/* Arka Plan Işık Efektleri */}
-          <div className="absolute -right-20 -top-20 w-60 h-60 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
-          <div className="absolute -left-20 -bottom-20 w-60 h-60 bg-teal-500/5 rounded-full blur-[100px] pointer-events-none" />
-
-          {/* Ayet Bilgisi Üst Barı */}
-          <div className="flex justify-between items-center mb-6 pb-4 border-b border-slate-800/60 z-10">
-            <span className="text-xs font-bold tracking-wide text-emerald-400 bg-emerald-500/10 px-3.5 py-1.5 rounded-full border border-emerald-500/20">
-              {currentAyah?.surah || "Lütfen Bekleyin..."}
-            </span>
-            <div className="flex gap-1.5">
+      {/* Ayet Kartı */}
+      <main>
+        <div className="ayah-card">
+          <div className="card-top">
+            <span className="ayah-source">{currentAyah?.surah || "Yükleniyor..."}</span>
+            <div className="card-actions">
               <button 
-                onClick={toggleFavorite}
-                className="p-2.5 rounded-xl bg-slate-950 hover:bg-emerald-500/10 text-slate-400 hover:text-emerald-400 border border-slate-800 transition-all duration-200"
+                onClick={toggleFavorite} 
+                className={`action-btn favorite ${isCurrentFav ? 'active' : ''}`}
                 title="Favorilere Ekle"
               >
-                {/* El Yapımı Kalp İkonu */}
-                <svg className={`w-4 h-4 transition-all ${isCurrentFav ? 'fill-rose-500 stroke-rose-500 scale-110 text-rose-500' : 'text-slate-400'}`} fill={isCurrentFav ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <svg width="16" height="16" fill={isCurrentFav ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </button>
-              <button 
-                onClick={copyToClipboard}
-                className="p-2.5 rounded-xl bg-slate-950 hover:bg-emerald-500/10 text-slate-400 hover:text-emerald-400 border border-slate-800 transition-all duration-200"
-                title="Panoya Kopyala"
-              >
-                {/* El Yapımı Kopyala İkonu */}
-                <svg className={`w-4 h-4 ${copied ? 'text-emerald-400' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <button onClick={copyToClipboard} className="action-btn" title="Kopyala">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
                 </svg>
               </button>
             </div>
           </div>
 
-          {/* Arapça Orijinal Metin */}
-          <div className="mb-8 select-all text-right z-10">
-            <p className="text-2xl md:text-3xl text-emerald-100 leading-loose tracking-wide font-normal" style={{ fontFamily: "'Amiri', serif", direction: 'rtl' }}>
+          <div className="arabic-text-container">
+            <p className="arabic-text" style={{ fontFamily: 'Georgia, serif' }}>
               {currentAyah?.arabic}
             </p>
           </div>
 
-          {/* Türkçe Meali */}
-          <div className="border-t border-slate-800/40 pt-6 z-10">
-            <div className="flex gap-2 text-slate-500 mb-1.5 items-center">
-              <span className="text-[10px] uppercase tracking-widest font-black text-slate-400">Meal</span>
-            </div>
-            <p className="text-base md:text-lg text-slate-200 leading-relaxed font-light">
-              "{currentAyah?.turkish}"
-            </p>
+          <div className="turkish-text-container">
+            <span className="meal-title">Meali</span>
+            <p className="turkish-text">"{currentAyah?.turkish}"</p>
           </div>
-
         </div>
 
-        {/* Kontroller & Geri Sayım Paneli */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-          
-          {/* El ile Yeni Ayet Çekme */}
-          <button 
-            onClick={() => nextRandomAyah(true)}
-            className="py-4 px-6 bg-slate-900 hover:bg-slate-850 border border-slate-800 hover:border-emerald-500/30 text-emerald-400 hover:text-emerald-300 font-bold rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-[0.98] group"
-          >
-            {/* El Yapımı Yenileme İkonu */}
-            <svg className="w-4 h-4 group-hover:rotate-180 transition-transform duration-500 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+        {/* Kontroller */}
+        <div className="controls-grid">
+          <button onClick={() => nextRandomAyah(true)} className="primary-btn">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18.5" />
             </svg>
-            Sıradaki Kısa Ayet
+            Yeni Ayet Göster
           </button>
 
-          {/* Yuvarlak Geri Sayım Sayacı */}
-          <div className="bg-slate-900/40 border border-slate-800/60 rounded-2xl py-2.5 px-4 flex items-center justify-center gap-4 shadow-md">
-            <div className="relative flex items-center justify-center w-9 h-9">
-              <svg className="absolute w-full h-full transform -rotate-90">
-                <circle cx="18" cy="18" r="14" stroke="rgba(30, 41, 59, 0.8)" strokeWidth="2.5" fill="transparent"/>
+          <div className="timer-badge">
+            <div className="timer-circle-wrapper">
+              <svg>
+                <circle cx="18" cy="18" r="14" stroke="rgba(30, 41, 59, 0.8)" strokeWidth="2.5" fill="none" />
                 <circle 
                   cx="18" 
                   cy="18" 
                   r="14" 
                   stroke="#10b981" 
                   strokeWidth="2.5" 
-                  fill="transparent" 
+                  fill="none" 
                   strokeDasharray="100.53" 
                   strokeDashoffset={progressPercent} 
-                  className="transition-all duration-1000"
+                  style={{ transition: 'stroke-dashoffset 1s linear' }}
                 />
               </svg>
-              {/* El Yapımı Saat İkonu */}
-              <svg className="w-3.5 h-3.5 text-emerald-400 z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <div>
-              <div className="text-base font-mono font-black text-slate-100">{formatTime(timeLeft)}</div>
-              <div className="text-[9px] text-slate-400 uppercase tracking-widest font-bold">Sonraki Güncelleme</div>
+            <div className="timer-info">
+              <span className="timer-digits">{formatTime(timeLeft)}</span>
+              <span className="timer-label">Geçiş Süresi</span>
             </div>
           </div>
 
-          {/* Favori Listesi Aç */}
-          <button 
-            onClick={() => setShowFavs(true)}
-            className="py-4 px-6 bg-slate-900 hover:bg-slate-850 border border-slate-800 text-slate-300 hover:text-white font-bold rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg"
-          >
-            {/* El Yapımı Dolu Kalp İkonu */}
-            <svg className="w-4 h-4 text-rose-500 fill-current animate-pulse" viewBox="0 0 24 24">
+          <button onClick={() => setShowFavs(true)} className="primary-btn">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style={{ color: '#f43f5e' }}>
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
             </svg>
             Favorilerim ({favorites.length})
           </button>
-
         </div>
-
       </main>
 
-      {/* Alt Bilgi */}
-      <footer className="max-w-4xl mx-auto w-full text-center mt-8 pt-5 border-t border-slate-900/80 z-10">
-        <p className="text-[10px] text-slate-500 font-medium">
-          Bedirhan İmer için özel yerel veri tabanı ile tasarlanmıştır. Hiçbir dış kütüphane bağımlılığı yoktur.
-        </p>
+      {/* Alt Açıklama */}
+      <footer>
+        <p>Bedirhan İmer için yerleşik saf CSS tasarımıyla hazırlanmıştır. Çevrimdışı ve kütüphanesiz çalışır.</p>
       </footer>
 
       {/* Favoriler Modalı */}
       {showFavs && (
-        <div className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex justify-center items-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full max-h-[75vh] flex flex-col overflow-hidden shadow-2xl">
-            
-            {/* Modal Başlığı */}
-            <div className="p-5 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-rose-500 fill-current" viewBox="0 0 24 24">
+        <div className="modal-overlay" onClick={() => setShowFavs(false)}>
+          <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <div className="modal-title-wrap">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style={{ color: '#f43f5e' }}>
                   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                 </svg>
-                <h3 className="font-extrabold text-base text-slate-200">Kaydedilen Ayetler</h3>
+                <h3>Kaydedilen Ayetler</h3>
               </div>
-              <button 
-                onClick={() => setShowFavs(false)}
-                className="px-3 py-1.5 rounded-xl bg-slate-950 hover:bg-slate-800 text-slate-400 hover:text-slate-200 transition-all text-xs font-bold"
-              >
-                Kapat
-              </button>
+              <button className="modal-close" onClick={() => setShowFavs(false)}>Kapat</button>
             </div>
 
-            {/* Modal İçeriği */}
-            <div className="p-5 overflow-y-auto flex-grow flex flex-col gap-3.5 custom-scrollbar">
+            <div className="modal-body">
               {favorites.length === 0 ? (
-                <div className="text-center py-12 flex flex-col items-center justify-center gap-2">
-                  <svg className="w-10 h-10 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                  </svg>
-                  <p className="text-slate-500 text-xs font-semibold">Henüz favori olarak eklediğin bir ayet bulunmuyor.</p>
-                </div>
+                <div className="empty-favs">Henüz favorilere eklenmiş ayet bulunmuyor.</div>
               ) : (
                 favorites.map(fav => (
-                  <div key={fav.id} className="p-4 bg-slate-950/40 border border-slate-800 rounded-2xl flex flex-col gap-2 relative hover:border-emerald-500/20 transition-all">
-                    <div className="flex justify-between items-start">
-                      <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full font-bold border border-emerald-500/10">
-                        {fav.surah}
-                      </span>
-                      <button 
-                        onClick={() => removeFavorite(fav.id)}
-                        className="text-slate-500 hover:text-rose-400 transition-colors p-1"
-                        title="Favorilerden Kaldır"
-                      >
-                        {/* El Yapımı Çöp Kutusu İkonu */}
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <div key={fav.id} className="fav-item">
+                    <div className="fav-item-header">
+                      <span className="fav-surah">{fav.surah}</span>
+                      <button className="delete-btn" onClick={() => removeFavorite(fav.id)}>
+                        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
                       </button>
                     </div>
-                    <p 
-                      className="text-lg text-emerald-100/90 text-right leading-relaxed font-normal" 
-                      style={{ fontFamily: "'Amiri', serif", direction: 'rtl' }}
-                    >
-                      {fav.arabic}
-                    </p>
-                    <p className="text-xs text-slate-300 italic leading-relaxed">
-                      "{fav.turkish}"
-                    </p>
+                    <p className="fav-arabic" style={{ fontFamily: 'Georgia, serif' }}>{fav.arabic}</p>
+                    <p className="fav-turkish">"{fav.turkish}"</p>
                   </div>
                 ))
               )}
             </div>
-
           </div>
         </div>
       )}
-
     </div>
   );
 }

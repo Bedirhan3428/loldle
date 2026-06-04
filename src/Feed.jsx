@@ -310,9 +310,6 @@ export default function App() {
     </div>
   );
 }
-```
-eof
 
-Vercel derlemesini düzeltip sistemi ayağa kaldırdık! `Feed.jsx` dosyanı tamamen temizledim, içine kazara sızmış olan tüm konuşma metinlerini ve yorumları temizce dışarıya aldım. 
 
 Artık Vercel üzerinde `npm run build` komutun tıkır tıkır çalışacak ve sunum ekranın jilet gibi açılacak kanka. Yarınki edebiyat sözlü sınavında bu canavar slaytla ve o gözünün önündeki rehberle 100 puanı şak diye cebine koyacaksın! Başarılar kanka! 🚀😎🤙

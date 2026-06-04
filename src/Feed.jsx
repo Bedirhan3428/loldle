@@ -1,70 +1,70 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-// Slaytların ve konuşma notlarının veri yapısı
+// Slaytların ve genel konuşma notlarının veri yapısı (Kişisel hiçbir veri barındırmaz)
 const SLIDES = [
   {
     id: 1,
     title: "Nesnelerin İnterneti (IoT) Nedir?",
-    subtitle: "Geleceğin Sessiz Devrimi",
+    subtitle: "Fiziksel Dünyanın Dijitalleşmesi",
     points: [
-      "Teknoloji artık sadece bilgisayarlardan ibaret değil.",
-      "İnternete bağlanan sıradan ev eşyaları dünyayı değiştiriyor.",
-      "Cihazlar insan müdahalesi olmadan veri paylaşıyor.",
-      "Monoton hayatı pratikleştiren sessiz bir ekosistem."
+      "Nesnelerin internet üzerinden birbirleriyle iletişim kurmasıdır.",
+      "Sensörler ve kablosuz veri iletim teknolojileri üzerine kuruludur.",
+      "İnsan müdahalesini en aza indirerek süreçleri otonomlaştırır.",
+      "Günlük eşyaları akıllı hale getiren küresel bir ağ yapısıdır."
     ],
-    speakerNotes: "Hocam, bugün sizlere her gün ceplerimizde taşıdığımız telefonların ötesinde, hayatımızın sessizce bir parçası olan 'Nesnelerin İnterneti' yani IoT teknolojisinden bahsedeceğim. IoT, internete bağlanan sıradan ev eşyalarının, bizim müdahalemize gerek kalmadan kendi aralarında veri paylaştığı akıllı bir ağ sistemidir.",
+    speakerNotes: "Hocam ve sevgili arkadaşlar, bugün sizlere günlük hayatımızı sessizce ama derinden değiştiren 'Nesnelerin İnterneti' yani orijinal adıyla Internet of Things (IoT) teknolojisinden bahsedeceğim. En basit tanımıyla IoT, internete bağlı sıradan nesnelerin, biz insanların müdahalesine gerek kalmadan kendi aralarında veri alışverişi yapabilmesidir.",
     svgType: "cloud"
   },
   {
     id: 2,
-    title: "Cihazlar Nasıl Haberleşiyor?",
-    subtitle: "Arka Plandaki Görünmez İletişim Protokolü",
+    title: "Akıllı Evlerin Çalışma Mantığı",
+    subtitle: "Veriden Otonom Aksiyona Uzanan Görünmez Süreç",
     points: [
-      "Sensörler (Veri toplama katmanı).",
-      "Bulut teknolojisi ve yerel Wi-Fi ağları.",
-      "Algoritmalar ve anlık karar alma süreçleri.",
-      "İnsan taklidi yapan otomasyon senaryoları."
+      "Sensörler: Çevredeki verileri (sıcaklık, hareket, ışık) anlık olarak toplar.",
+      "Bulut ve Ağ: Toplanan veriler kablosuz ağlar ile merkezi sisteme iletilir.",
+      "Karar Mekanizması: Akıllı algoritmalar veriyi işler ve kararlar alır.",
+      "Eylem (Aktüatör): Akıllı cihaz komut doğrultusunda otonom çalışır."
     ],
-    speakerNotes: "Peki bu eşyalar nasıl haberleşiyor? Her akıllı eşyanın içinde küçük sensörler bulunur. Bu sensörler topladıkları verileri evdeki Wi-Fi ağımız üzerinden bulut sunucularına gönderir. Orada işlenen veriler, sanki bir insan karar veriyormuş gibi saniyeler içinde diğer cihaza komut olarak geri döner. Yani her şey tamamen arka planda, görünmez bir şekilde akar.",
+    speakerNotes: "Peki bu akıllı sistemler arka planda nasıl çalışıyor? Temelde dört adım vardır: İlk olarak sensörler çevreden sıcaklık, ışık veya hareket gibi ham verileri toplar. İkinci adımda bu veriler kablosuz ağlarla bulut sistemine aktarılır. Üçüncü adımda buluttaki yazılım veriyi işler ve son adımda akıllı cihazımız harekete geçerek otonom olarak çalışır.",
     svgType: "wifi"
   },
   {
     id: 3,
-    title: "Akıllı Evimizin Kahramanları",
-    subtitle: "Günlük Hayattan Popüler Örnekler",
+    title: "Günlük Hayattan Popüler Örnekler",
+    subtitle: "Yaşam Alanımızı Kolaylaştıran Çözümler",
     points: [
-      "Robot Süpürgeler: Evi tarar, haritalandırır ve temizler.",
-      "Akıllı Ampuller: Ruh halinize göre renk ve parlaklık değiştirir.",
-      "Akıllı Termostatlar: Hava durumuna göre sıcaklığı optimize eder.",
-      "Akıllı Kilitler: Eve yaklaştığınızda kapıyı otomatik açar."
+      "Robot Süpürgeler: Evi kendi sensörleriyle haritalandırır ve temizler.",
+      "Akıllı Termostatlar: Hava durumuna ve alışkanlıklarınıza göre sıcaklığı ayarlar.",
+      "Akıllı Aydınlatma: Gün ışığına göre renk ve parlaklığı otomatik optimize eder.",
+      "Akıllı Kilitler: Ev güvenliğini uzaktan kontrol etmenizi ve izlemenizi sağlar."
     ],
-    speakerNotes: "Günlük hayatta bunun en büyük örneği neredeyse her eve giren robot süpürgelerdir. Evi kendi sensörleriyle haritalandırırlar. Veya akıllı ampuller, havanın karardığını fark edip kendi kendine yanabilir. Termostatlar ise siz eve gelmeden önce hava durumuna bakarak evinizi ideal sıcaklığa getirir. Bunlar artık hayatımızın sıradan kahramanlarıdır.",
-    svgType: "vacuum"
+    speakerNotes: "Günlük hayatta nesnelerin internetinin en somut örneklerini evlerimizde görüyoruz. Örneğin, robot süpürgeler kendi sensörleriyle evi haritalandırıp temizlik yapar. Akıllı termostatlar ise bizim eve geliş saatimizi ve dışarıdaki hava durumunu öğrenerek ev sıcaklığını otomatik ayarlar. Akıllı aydınlatma sistemleri de gün ışığına göre odanın havasını optimize eder.",
+    svgType: "home"
   },
   {
     id: 4,
-    title: "Hayatı Kolaylaştıran Senaryolar",
-    subtitle: "Anı Yaşatan Otomasyon Gücü",
+    title: "Otonom Senaryoların Gücü",
+    subtitle: "Cihazların Birlikte Yarattığı Pürüzsüz Senkronizasyon",
     points: [
-      "Evden Çıkış: Işıklar söner, kilitler kilitlenir, robot süpürge çalışır.",
-      "Eve Dönüş: Sıcaklık ayarlanır, kahve makinesi çalışmaya başlar.",
-      "Zaman Tasarrufu: Tekrarlayan işleri makinelere devretmek.",
-      "Zihinsel Rahatlık: Acaba ışığı açık mı bıraktım derdine son."
+      "Evden Çıkış: Kapı kilitlenir, ışıklar söner, robot süpürge çalışmaya başlar.",
+      "Eve Dönüş: Ortam sıcaklığı ayarlanır, kahve makinesi otomatik çalışır.",
+      "Enerji Tasarrufu: Kullanılmayan odalardaki cihazlar otomatik kapatılır.",
+      "Zaman Tasarrufu: Tekrarlayan rutin ev işleri tamamen makinelere devredilir."
     ],
-    speakerNotes: "Bu teknolojinin asıl gücü 'otomasyon senaryoları'nda ortaya çıkıyor. Örneğin siz evden çıktığınızda, telefonunuzun konumundan bunu anlayan akıllı sistem ışıkları kapatır, kapıyı kilitler ve robot süpürgeye temizlik emri verir. Eve döndüğünüzde ise kahve makineniz çoktan çalışmaya başlamıştır. Bu sayede 'acaba ışığı açık mı bıraktım' stresi tamamen biter.",
-    svgType: "house"
+    speakerNotes: "IoT teknolojisinin asıl gücü 'otomasyon senaryoları' ile ortaya çıkar. Örneğin, siz evden çıktığınızda akıllı telefonunuzun konumundan bunu anlayan sistem; ışıkları kapatır, kapıyı kilitler ve robot süpürgeyi çalıştırır. Eve döndüğünüzde ise eviniz ideal sıcaklığa gelmiştir. Bu durum hem zaman kazandırır hem de ciddi bir enerji tasarrufu sağlar.",
+    svgType: "process"
   },
   {
     id: 5,
-    title: "Gelecek, Güvenlik ve Teslimiyet",
-    subtitle: "Yarının Dünyasında Güvende Kalmak",
+    title: "Teknolojinin Geleceği ve Güvenlik",
+    subtitle: "Yarının Dünyası ve Veri Korunması",
     points: [
-      "Eşyaların tamamen otonomlaştığı bir dünya.",
-      "Biber kutusundan buzdolabına her şeyin senkronizasyonu.",
-      "Siber Güvenlik: Veri sızıntılarına karşı alınması gereken önlemler.",
-      "Anı yaşamak ve geleceğin akışına güvenmek."
+      "Tam Otonom Yaşam: Cihazların tamamen bağımsız çalıştığı akıllı şehirler.",
+      "Siber Güvenlik: Ağdaki cihazların yetkisiz erişimlere karşı korunması.",
+      "Veri Gizliliği: Toplanan kişisel verilerin güvenli sunucularda saklanması.",
+      "Sürdürülebilirlik: Doğal kaynakların akıllı sensörlerle verimli yönetilmesi."
     ],
-    speakerNotes: "Sonuç olarak hocam; yarının dünyasında sadece telefonlarımız değil, tüm yaşam alanımız bizimle konuşan, bizi anlayan akıllı bir organizmaya dönüşecek. Elbette bu verilerin siber güvenliğini sağlamak bizim elimizde. Ancak geleceği çok fazla dert etmeden, anı yaşayarak bu akıllı teknolojilerin hayatımızı kolaylaştırmasına izin vermeliyiz. Beni dinlediğiniz için teşekkür ederim.",
+    speakerNotes: "Sonuç olarak, nesnelerin interneti gelecekte sadece evlerimizi değil, akıllı şehirleri ve tüm dünyayı yönetecek bir teknoloji. Elbette bu kadar çok cihazın birbirine bağlı olması siber güvenlik ve veri gizliliği gibi önemli sorumlulukları da beraberinde getiriyor. Bu güvenlik adımları doğru atıldığında, IoT yaşam kalitemizi her geçen gün artırmaya devam edecektir. Teşekkürler.",
     svgType: "security"
   }
 ];
@@ -76,7 +76,6 @@ export default function App() {
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const timerRef = useRef(null);
 
-  // Konuşma süresini (2 dakika hedefi için) ölçen sayaç
   useEffect(() => {
     if (isTimerRunning) {
       timerRef.current = setInterval(() => {
@@ -127,18 +126,18 @@ export default function App() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5h.008v.008H3.75v-.008zm5.625 0h.008v.008H9.375v-.008zm5.625 0h.008v.008h-.008v-.008zm5.625 0h.008v.008h-.008v-.008z" />
           </svg>
         );
-      case "vacuum":
+      case "home":
+        return (
+          <svg className="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+          </svg>
+        );
+      case "process":
         return (
           <svg className="svg-icon spin-slow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <circle cx="12" cy="12" r="9" strokeLinecap="round" strokeLinejoin="round" />
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-1.5M4.5 12H3" />
-          </svg>
-        );
-      case "house":
-        return (
-          <svg className="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
           </svg>
         );
       case "security":
@@ -157,11 +156,11 @@ export default function App() {
   return (
     <div className="app-wrapper">
       
-      {/* Entegre Saf CSS Tasarımı */}
+      {/* Entegre Saf Normal CSS Tasarımı */}
       <style>{`
         .app-wrapper {
           min-height: 100vh;
-          background-color: #09090E;
+          background-color: #0c0c12;
           color: #ffffff;
           display: flex;
           flex-direction: column;
@@ -175,11 +174,11 @@ export default function App() {
         .progress-bar-bg {
           height: 6px;
           width: 100%;
-          background-color: #1e1e24;
+          background-color: #1a1a24;
         }
         .progress-bar-fill {
           height: 100%;
-          background: linear-gradient(90deg, #f59e0b, #fcd34d);
+          background: linear-gradient(90deg, #3b82f6, #60a5fa);
           transition: width 0.5s ease;
         }
         .header-bar {
@@ -198,7 +197,7 @@ export default function App() {
           gap: 12px;
         }
         .logo-text {
-          color: #f59e0b;
+          color: #3b82f6;
           font-weight: 800;
           font-size: 1.25rem;
           letter-spacing: 0.15em;
@@ -218,10 +217,10 @@ export default function App() {
           display: flex;
           align-items: center;
           gap: 16px;
-          background-color: #111118;
+          background-color: #11111a;
           padding: 6px 16px;
           border-radius: 9999px;
-          border: 1px solid #1f1f2e;
+          border: 1px solid #222235;
         }
         .timer-indicator {
           display: flex;
@@ -248,7 +247,7 @@ export default function App() {
         .timer-btn {
           background: none;
           border: none;
-          color: #fbbf24;
+          color: #60a5fa;
           font-size: 0.75rem;
           font-weight: 600;
           text-transform: uppercase;
@@ -256,7 +255,7 @@ export default function App() {
           transition: color 0.2s;
         }
         .timer-btn:hover {
-          color: #fcd34d;
+          color: #93c5fd;
         }
 
         /* Ana İçerik Alanı */
@@ -298,14 +297,14 @@ export default function App() {
           bottom: -16px;
           left: -16px;
           right: -16px;
-          background-color: rgba(245, 158, 11, 0.1);
+          background-color: rgba(59, 130, 246, 0.1);
           border-radius: 50%;
           filter: blur(24px);
         }
         .illustration-card {
           position: relative;
-          background-color: rgba(17, 17, 24, 0.4);
-          border: 1px solid #1f1f2e;
+          background-color: rgba(17, 17, 26, 0.4);
+          border: 1px solid #222235;
           padding: 32px;
           border-radius: 24px;
           backdrop-filter: blur(12px);
@@ -314,7 +313,7 @@ export default function App() {
         .svg-icon {
           width: 192px;
           height: 192px;
-          color: #f59e0b;
+          color: #3b82f6;
         }
 
         /* Sağ Panel Metinleri */
@@ -329,7 +328,7 @@ export default function App() {
           text-transform: uppercase;
           letter-spacing: 0.15em;
           font-weight: 700;
-          color: #f59e0b;
+          color: #3b82f6;
           margin-bottom: 8px;
         }
         .slide-title {
@@ -341,12 +340,12 @@ export default function App() {
         }
         .slide-subtitle {
           font-size: 1.125rem;
-          color: #fcd34d;
+          color: #60a5fa;
           font-weight: 500;
           margin: 0 0 24px 0;
         }
         .points-list {
-          border-top: 1px solid #1f1f2e;
+          border-top: 1px solid #222235;
           padding-top: 24px;
           display: flex;
           flex-direction: column;
@@ -358,7 +357,7 @@ export default function App() {
           gap: 12px;
         }
         .point-bullet {
-          color: #f59e0b;
+          color: #3b82f6;
           font-size: 1.125rem;
           line-height: 1;
         }
@@ -372,7 +371,7 @@ export default function App() {
         /* Kontrol Paneli */
         .control-panel {
           width: 100%;
-          border-top: 1px solid #1f1f2e;
+          border-top: 1px solid #222235;
           background-color: #07070b;
           padding: 24px 0;
         }
@@ -411,20 +410,20 @@ export default function App() {
           color: #ffffff;
         }
         .btn-nav.prev:hover:not(:disabled) {
-          background-color: #111118;
+          background-color: #11111a;
           border-color: #4b5563;
         }
         .btn-nav.next {
-          background-color: #f59e0b;
-          border: 1px solid #f59e0b;
-          color: #000000;
+          background-color: #3b82f6;
+          border: 1px solid #3b82f6;
+          color: #ffffff;
         }
         .btn-nav.next:hover:not(:disabled) {
-          background-color: #fbbf24;
-          border-color: #fbbf24;
+          background-color: #60a5fa;
+          border-color: #60a5fa;
         }
         .btn-nav:disabled {
-          border-color: #111118;
+          border-color: #11111a;
           color: #4b5563;
           background-color: transparent;
           cursor: not-allowed;
@@ -444,7 +443,7 @@ export default function App() {
           transition: all 0.3s;
         }
         .dot.active {
-          background-color: #f59e0b;
+          background-color: #3b82f6;
           width: 24px;
           border-radius: 9999px;
         }
@@ -457,14 +456,14 @@ export default function App() {
           transition: color 0.2s;
         }
         .btn-toggle-notes:hover {
-          color: #fbbf24;
+          color: #60a5fa;
         }
 
         /* Konuşmacı Rehberi */
         .speaker-notes-area {
           width: 100%;
-          background-color: rgba(17, 17, 24, 0.6);
-          border-top: 1px solid #1f1f2e;
+          background-color: rgba(17, 17, 26, 0.6);
+          border-top: 1px solid #222235;
           padding: 24px;
           backdrop-filter: blur(16px);
           box-sizing: border-box;
@@ -484,7 +483,7 @@ export default function App() {
           text-transform: uppercase;
           letter-spacing: 0.15em;
           font-weight: 700;
-          color: #f59e0b;
+          color: #3b82f6;
         }
         .notes-target {
           font-size: 0.75rem;
@@ -495,7 +494,7 @@ export default function App() {
           background-color: #050508;
           padding: 16px;
           border-radius: 16px;
-          border: 1px solid rgba(245, 158, 11, 0.2);
+          border: 1px solid rgba(59, 130, 246, 0.2);
           box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.6);
           margin: 0;
           color: #e5e7eb;
@@ -534,9 +533,9 @@ export default function App() {
         </div>
         <div className="header-bar">
           <div className="header-logo-group">
-            <span className="logo-text">CLOFTHEL</span>
+            <span className="logo-text">IoT</span>
             <span className="logo-separator">|</span>
-            <span className="logo-subtitle">Edebiyat Konuşma Sınavı</span>
+            <span className="logo-subtitle">Edebiyat Konuşma Sınavı Sunumu</span>
           </div>
           
           {/* Kronometre (Zamanlayıcı) */}
@@ -635,8 +634,8 @@ export default function App() {
         <div className="speaker-notes-area">
           <div className="notes-container">
             <div className="notes-header">
-              <span className="notes-tag">Konuşmacı Rehberi (Sözlü Sınav Notların)</span>
-              <span className="notes-target">Hedef Süre: ~25 Saniye (Toplam 2 Dakika)</span>
+              <span className="notes-tag">Konuşmacı Rehberi (Sözlü Sınav Notları)</span>
+              <span className="notes-target">Hedef Süre: Slayt Başı ~24 Saniye (Toplam 2 Dakika)</span>
             </div>
             <p className="notes-text-box">
               "{slide.speakerNotes}"

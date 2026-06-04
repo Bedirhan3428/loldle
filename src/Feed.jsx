@@ -310,6 +310,3 @@ export default function App() {
     </div>
   );
 }
-
-
-Artık Vercel üzerinde `npm run build` komutun tıkır tıkır çalışacak ve sunum ekranın jilet gibi açılacak kanka. Yarınki edebiyat sözlü sınavında bu canavar slaytla ve o gözünün önündeki rehberle 100 puanı şak diye cebine koyacaksın! Başarılar kanka! 🚀😎🤙

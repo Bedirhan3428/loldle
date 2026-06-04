@@ -112,25 +112,24 @@ export default function App() {
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
-  // Slaytlara özel minimalist SVG çizimleri
   const renderIllustration = (type) => {
     switch (type) {
       case "cloud":
         return (
-          <svg className="w-48 h-48 text-amber-500 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <svg className="svg-icon animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
           </svg>
         );
       case "wifi":
         return (
-          <svg className="w-48 h-48 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <svg className="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9.375 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM14.25 15.75a3 3 0 11-6 0 3 3 0 016 0zM22.5 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5h.008v.008H3.75v-.008zm5.625 0h.008v.008H9.375v-.008zm5.625 0h.008v.008h-.008v-.008zm5.625 0h.008v.008h-.008v-.008z" />
           </svg>
         );
       case "vacuum":
         return (
-          <svg className="w-48 h-48 text-amber-500 spin-slow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <svg className="svg-icon spin-slow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <circle cx="12" cy="12" r="9" strokeLinecap="round" strokeLinejoin="round" />
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-1.5M4.5 12H3" />
@@ -138,13 +137,13 @@ export default function App() {
         );
       case "house":
         return (
-          <svg className="w-48 h-48 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <svg className="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
           </svg>
         );
       case "security":
         return (
-          <svg className="w-48 h-48 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <svg className="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751A11.959 11.959 0 0112 2.714z" />
           </svg>
         );
@@ -156,32 +155,399 @@ export default function App() {
   const slide = SLIDES[currentSlide];
 
   return (
-    <div className="min-h-screen bg-[#09090E] text-white flex flex-col justify-between font-sans">
+    <div className="app-wrapper">
       
+      {/* Entegre Saf CSS Tasarımı */}
+      <style>{`
+        .app-wrapper {
+          min-height: 100vh;
+          background-color: #09090E;
+          color: #ffffff;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          margin: 0;
+          box-sizing: border-box;
+        }
+
+        /* Üst Bar ve İlerleme Çubuğu */
+        .progress-bar-bg {
+          height: 6px;
+          width: 100%;
+          background-color: #1e1e24;
+        }
+        .progress-bar-fill {
+          height: 100%;
+          background: linear-gradient(90deg, #f59e0b, #fcd34d);
+          transition: width 0.5s ease;
+        }
+        .header-bar {
+          max-width: 1200px;
+          margin: 0 auto;
+          width: 100%;
+          padding: 16px 24px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-sizing: border-box;
+        }
+        .header-logo-group {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .logo-text {
+          color: #f59e0b;
+          font-weight: 800;
+          font-size: 1.25rem;
+          letter-spacing: 0.15em;
+        }
+        .logo-separator {
+          color: #4b5563;
+        }
+        .logo-subtitle {
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: #9ca3af;
+        }
+
+        /* Kronometre */
+        .timer-badge {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          background-color: #111118;
+          padding: 6px 16px;
+          border-radius: 9999px;
+          border: 1px solid #1f1f2e;
+        }
+        .timer-indicator {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .pulse-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+        }
+        .pulse-dot.active {
+          background-color: #10b981;
+          animation: pulse-glow 2s infinite;
+        }
+        .pulse-dot.inactive {
+          background-color: #4b5563;
+        }
+        .timer-text {
+          font-family: monospace;
+          font-size: 0.875rem;
+          color: #d1d5db;
+        }
+        .timer-btn {
+          background: none;
+          border: none;
+          color: #fbbf24;
+          font-size: 0.75rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          cursor: pointer;
+          transition: color 0.2s;
+        }
+        .timer-btn:hover {
+          color: #fcd34d;
+        }
+
+        /* Ana İçerik Alanı */
+        .main-content {
+          max-width: 1100px;
+          width: 100%;
+          margin: 0 auto;
+          padding: 32px 24px;
+          flex: 1;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          gap: 48px;
+          box-sizing: border-box;
+        }
+        @media (max-width: 768px) {
+          .main-content {
+            flex-direction: column;
+            gap: 32px;
+            padding: 16px;
+          }
+          .panel-left, .panel-right {
+            width: 100% !important;
+          }
+        }
+        .panel-left {
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .illustration-container {
+          position: relative;
+        }
+        .glow-effect {
+          position: absolute;
+          top: -16px;
+          bottom: -16px;
+          left: -16px;
+          right: -16px;
+          background-color: rgba(245, 158, 11, 0.1);
+          border-radius: 50%;
+          filter: blur(24px);
+        }
+        .illustration-card {
+          position: relative;
+          background-color: rgba(17, 17, 24, 0.4);
+          border: 1px solid #1f1f2e;
+          padding: 32px;
+          border-radius: 24px;
+          backdrop-filter: blur(12px);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .svg-icon {
+          width: 192px;
+          height: 192px;
+          color: #f59e0b;
+        }
+
+        /* Sağ Panel Metinleri */
+        .panel-right {
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .slide-counter {
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          font-weight: 700;
+          color: #f59e0b;
+          margin-bottom: 8px;
+        }
+        .slide-title {
+          font-size: 2.25rem;
+          font-weight: 800;
+          margin: 0 0 8px 0;
+          letter-spacing: -0.025em;
+          line-height: 1.2;
+        }
+        .slide-subtitle {
+          font-size: 1.125rem;
+          color: #fcd34d;
+          font-weight: 500;
+          margin: 0 0 24px 0;
+        }
+        .points-list {
+          border-top: 1px solid #1f1f2e;
+          padding-top: 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .point-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+        }
+        .point-bullet {
+          color: #f59e0b;
+          font-size: 1.125rem;
+          line-height: 1;
+        }
+        .point-text {
+          color: #d1d5db;
+          font-size: 1.125rem;
+          line-height: 1.6;
+          margin: 0;
+        }
+
+        /* Kontrol Paneli */
+        .control-panel {
+          width: 100%;
+          border-top: 1px solid #1f1f2e;
+          background-color: #07070b;
+          padding: 24px 0;
+        }
+        .control-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 24px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 24px;
+          box-sizing: border-box;
+        }
+        @media (max-width: 768px) {
+          .control-container {
+            flex-direction: column;
+            gap: 16px;
+          }
+        }
+        .nav-buttons-group {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+        .btn-nav {
+          padding: 10px 20px;
+          border-radius: 12px;
+          font-size: 0.875rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+        .btn-nav.prev {
+          background: none;
+          border: 1px solid #374151;
+          color: #ffffff;
+        }
+        .btn-nav.prev:hover:not(:disabled) {
+          background-color: #111118;
+          border-color: #4b5563;
+        }
+        .btn-nav.next {
+          background-color: #f59e0b;
+          border: 1px solid #f59e0b;
+          color: #000000;
+        }
+        .btn-nav.next:hover:not(:disabled) {
+          background-color: #fbbf24;
+          border-color: #fbbf24;
+        }
+        .btn-nav:disabled {
+          border-color: #111118;
+          color: #4b5563;
+          background-color: transparent;
+          cursor: not-allowed;
+        }
+        .nav-dots {
+          display: flex;
+          gap: 6px;
+        }
+        .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: #374151;
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          transition: all 0.3s;
+        }
+        .dot.active {
+          background-color: #f59e0b;
+          width: 24px;
+          border-radius: 9999px;
+        }
+        .btn-toggle-notes {
+          background: none;
+          border: none;
+          color: #9ca3af;
+          font-size: 0.875rem;
+          cursor: pointer;
+          transition: color 0.2s;
+        }
+        .btn-toggle-notes:hover {
+          color: #fbbf24;
+        }
+
+        /* Konuşmacı Rehberi */
+        .speaker-notes-area {
+          width: 100%;
+          background-color: rgba(17, 17, 24, 0.6);
+          border-top: 1px solid #1f1f2e;
+          padding: 24px;
+          backdrop-filter: blur(16px);
+          box-sizing: border-box;
+        }
+        .notes-container {
+          max-width: 900px;
+          margin: 0 auto;
+        }
+        .notes-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 12px;
+        }
+        .notes-tag {
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          font-weight: 700;
+          color: #f59e0b;
+        }
+        .notes-target {
+          font-size: 0.75rem;
+          color: #6b7280;
+          font-family: monospace;
+        }
+        .notes-text-box {
+          background-color: #050508;
+          padding: 16px;
+          border-radius: 16px;
+          border: 1px solid rgba(245, 158, 11, 0.2);
+          box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.6);
+          margin: 0;
+          color: #e5e7eb;
+          font-size: 1rem;
+          line-height: 1.6;
+        }
+
+        /* Animasyonlar */
+        .spin-slow {
+          animation: spin 12s linear infinite;
+        }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .animate-pulse {
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: .5; }
+        }
+        @keyframes pulse-glow {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.2); opacity: 0.7; }
+        }
+      `}</style>
+
       {/* Üst Bilgi Barı ve İlerleme Çubuğu */}
-      <div className="w-full">
-        <div className="h-1.5 w-full bg-neutral-800">
+      <div className="progress-section">
+        <div className="progress-bar-bg">
           <div 
-            className="h-full bg-gradient-to-r from-amber-500 to-amber-300 transition-all duration-500"
+            className="progress-bar-fill"
             style={{ width: `${((currentSlide + 1) / SLIDES.length) * 100}%` }}
           />
         </div>
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-3">
-            <span className="text-amber-500 font-bold text-xl letter-spacing-1">CLOFTHEL</span>
-            <span className="text-neutral-500">|</span>
-            <span className="text-xs uppercase tracking-widest text-neutral-400">Edebiyat Konuşma Sınavı</span>
+        <div className="header-bar">
+          <div className="header-logo-group">
+            <span className="logo-text">CLOFTHEL</span>
+            <span className="logo-separator">|</span>
+            <span className="logo-subtitle">Edebiyat Konuşma Sınavı</span>
           </div>
           
           {/* Kronometre (Zamanlayıcı) */}
-          <div className="flex items-center space-x-4 bg-neutral-900 px-4 py-1.5 rounded-full border border-neutral-800">
-            <div className="flex items-center space-x-2">
-              <span className={`w-2.5 h-2.5 rounded-full ${isTimerRunning ? 'bg-green-500 animate-ping' : 'bg-neutral-600'}`} />
-              <span className="text-sm font-mono text-neutral-300">{formatTime(timer)}</span>
+          <div className="timer-badge">
+            <div className="timer-indicator">
+              <span className={`pulse-dot ${isTimerRunning ? 'active' : 'inactive'}`} />
+              <span className="timer-text">{formatTime(timer)}</span>
             </div>
             <button 
               onClick={isTimerRunning ? () => setIsTimerRunning(false) : startPresentation}
-              className="text-xs text-amber-400 hover:text-amber-300 uppercase font-semibold transition"
+              className="timer-btn"
             >
               {timer === 0 ? "Başlat" : isTimerRunning ? "Durdur" : "Sıfırla"}
             </button>
@@ -190,33 +556,29 @@ export default function App() {
       </div>
 
       {/* Ana Slayt İçerik Alanı */}
-      <div className="max-w-6xl mx-auto w-full px-6 flex-1 flex flex-col md:flex-row items-center justify-center gap-12 py-8">
+      <div className="main-content">
         
         {/* Sol Panel: Minimalist İllüstrasyon */}
-        <div className="w-full md:w-1/2 flex justify-center items-center h-64 md:h-96">
-          <div className="relative">
-            <div className="absolute -inset-4 bg-amber-500/10 rounded-full blur-3xl" />
-            <div className="relative bg-neutral-900/40 border border-neutral-800 p-8 rounded-3xl backdrop-blur-md shadow-2xl">
+        <div className="panel-left">
+          <div className="illustration-container">
+            <div className="glow-effect" />
+            <div className="illustration-card">
               {renderIllustration(slide.svgType)}
             </div>
           </div>
         </div>
 
         {/* Sağ Panel: Slayt Metinleri ve Kurşun Noktalar */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center space-y-6">
-          <div className="space-y-2">
-            <span className="text-xs uppercase tracking-widest font-bold text-amber-500">Slayt {slide.id} / 5</span>
-            <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
-              {slide.title}
-            </h1>
-            <p className="text-amber-300 text-lg font-medium">{slide.subtitle}</p>
-          </div>
+        <div className="panel-right">
+          <span className="slide-counter">Slayt {slide.id} / {SLIDES.length}</span>
+          <h1 className="slide-title">{slide.title}</h1>
+          <p className="slide-subtitle">{slide.subtitle}</p>
 
-          <div className="space-y-4 pt-4 border-t border-neutral-800">
+          <div className="points-list">
             {slide.points.map((point, index) => (
-              <div key={index} className="flex items-start space-x-3">
-                <span className="text-amber-500 mt-1 text-lg">✦</span>
-                <p className="text-neutral-300 text-base md:text-lg leading-relaxed">{point}</p>
+              <div key={index} className="point-item">
+                <span className="point-bullet">✦</span>
+                <p className="point-text">{point}</p>
               </div>
             ))}
           </div>
@@ -225,41 +587,31 @@ export default function App() {
       </div>
 
       {/* Slayt Navigasyon ve Kontrol Paneli */}
-      <div className="w-full border-t border-neutral-800 bg-[#07070B] py-6">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div className="control-panel">
+        <div className="control-container">
           
           {/* Sol: Geri ve İleri Butonları */}
-          <div className="flex items-center space-x-4">
+          <div className="nav-buttons-group">
             <button 
               onClick={handlePrev}
               disabled={currentSlide === 0}
-              className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition border ${
-                currentSlide === 0 
-                  ? 'border-neutral-800 text-neutral-600 cursor-not-allowed' 
-                  : 'border-neutral-700 hover:bg-neutral-900 text-white'
-              }`}
+              className="btn-nav prev"
             >
               ← Geri
             </button>
-            <div className="flex space-x-1.5">
+            <div className="nav-dots">
               {SLIDES.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    currentSlide === index ? 'bg-amber-500 w-6' : 'bg-neutral-700'
-                  }`}
+                  className={`dot ${currentSlide === index ? 'active' : ''}`}
                 />
               ))}
             </div>
             <button 
               onClick={handleNext}
               disabled={currentSlide === SLIDES.length - 1}
-              className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition border ${
-                currentSlide === SLIDES.length - 1 
-                  ? 'border-neutral-800 text-neutral-600 cursor-not-allowed' 
-                  : 'border-amber-500 bg-amber-500 hover:bg-amber-400 text-black'
-              }`}
+              className="btn-nav next"
             >
               İleri →
             </button>
@@ -269,9 +621,9 @@ export default function App() {
           <div>
             <button 
               onClick={() => setShowNotes(!showNotes)}
-              className="flex items-center space-x-2 text-sm text-neutral-400 hover:text-amber-400 transition"
+              className="btn-toggle-notes"
             >
-              <span>{showNotes ? "👁️ Konuşmacı Notlarını Gizle" : "👁️ Konuşmacı Notlarını Göster"}</span>
+              {showNotes ? "👁️ Konuşmacı Notlarını Gizle" : "👁️ Konuşmacı Notlarını Göster"}
             </button>
           </div>
 
@@ -280,32 +632,18 @@ export default function App() {
 
       {/* Konuşmacı Rehberi */}
       {showNotes && (
-        <div className="w-full bg-neutral-900/60 border-t border-neutral-800 p-6 backdrop-blur-lg">
-          <div className="max-w-4xl mx-auto space-y-3">
-            <div className="flex justify-between items-center">
-              <span className="text-xs uppercase tracking-widest font-bold text-amber-500">Konuşmacı Rehberi (Sözlü Sınav Notların)</span>
-              <span className="text-xs text-neutral-500 font-mono">Hedef Süre: ~25 Saniye (Toplam 2 Dakika)</span>
+        <div className="speaker-notes-area">
+          <div className="notes-container">
+            <div className="notes-header">
+              <span className="notes-tag">Konuşmacı Rehberi (Sözlü Sınav Notların)</span>
+              <span className="notes-target">Hedef Süre: ~25 Saniye (Toplam 2 Dakika)</span>
             </div>
-            <p className="text-neutral-200 text-base leading-relaxed bg-neutral-950 p-4 rounded-2xl border border-amber-500/20 shadow-inner">
+            <p className="notes-text-box">
               "{slide.speakerNotes}"
             </p>
           </div>
         </div>
       )}
-
-      {/* Ekstra CSS Animasyonları */}
-      <style>{`
-        .spin-slow {
-          animation: spin 12s linear infinite;
-        }
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .letter-spacing-1 {
-          letter-spacing: 0.15em;
-        }
-      `}</style>
 
     </div>
   );
